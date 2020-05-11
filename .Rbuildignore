@@ -4,3 +4,4 @@ testing.R
 tidysequences.Rmd
 git_ignore
 ^LICENSE\.md$
+^\.github$
