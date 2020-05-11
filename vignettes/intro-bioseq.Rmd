@@ -1,0 +1,174 @@
+---
+title: "Introduction to the `bioseq` package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to the `bioseq` package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+The purpose of the `bioseq` package is to provide a collection of classes and functions for biological sequence manipulation in R. This vignette will introduce you to the basics of the package so you can get an overview of its functionnalities and start to use it rapidly.
+
+It is assumed that you already installed the package either from CRAN using the function `install.packages("bioseq)` or from GitHub using `remotes::install_github("fkeck/bioseq")`. Now, let's get started by loading the package.
+
+```{r setup}
+library(bioseq)
+```
+
+## First steps
+
+One of the core functionnality of `bioseq` is to provide vector classes to store DNA, RNA and amino acid sequences. We create our first DNA sequence vector using the function `dna()`:
+
+```{r}
+x <- dna(Seq_1 = "ACCTAG", Seq_2 = "GGTATATACC", Seq_3 = "AGTC")
+is_dna(x)
+x
+```
+
+The function `is_dna()` is useful to test if an object is a DNA vector. The print method nicely indicates that `x` is a DNA vector of `r seq_nseq(x)` sequences. Note that contrary to the standard print methods for R vectors, each element is printed on its own line, next to its (optional) name. Apart from this, a DNA vector behave very like a `character` vector. For example we can select and reorder elements by name, logical or index:
+
+```{r}
+x[c("Seq_3", "Seq_1")]
+x[2]
+x[c(FALSE, FALSE, TRUE)]
+```
+
+However, the key difference between a DNA vector and a character vector is that DNA uses a restricted alphabet. For DNA this alphabet is A, C, G, T, W, S, M, K, R, Y, B, D, H, V, N and -, which correpond to the IUPAC symbols for DNA nucleotides. What happens if you include a forbidden character in a sequence?
+
+```{r}
+y <- dna("?AcGF")
+y
+```
+
+Here we included two forbidden characters (? and F). Both are automatically converted to a N (which stands for *any nucleotide*). Forbidden characters often mean that something went wrong somewhere, so the function warns the user. Additionally we included a lowercase symbol (c) which is automatically and silently converted to uppercase. This mechanism guarantees that DNA objects contain only uppercase characters.
+
+RNA and amino acid sequences can be constructed just like DNA using `rna()` and `aa()` functions. It is possible to check the allowed alphabet for each type of sequences by typing `?alphabets` in the console.
+
+## Operations on sequences
+
+### Biological conversion among classes
+
+In living organisms, DNA is typically transcribed to RNA which is translated to a proteic sequence. Similarly, conversion among sequence classes can be achieved using the `seq_transcribe()` and `seq_translate()` functions.
+
+```{r}
+x_dna <- dna("ATGTCACCACAAACAGAGACT")
+x_dna
+
+x_rna <- seq_transcribe(x_dna)
+x_rna
+
+x_aa <- seq_translate(x_rna)
+x_aa
+```
+
+During transcription thymine is simply replaced by uracil. The translation decodes the RNA sequence into amino acids using the standard genetic code. Non standard genetic codes are also available for translation (see the help `?seq_translate`). The reverse transcription can be achieved using the function `seq_rev_transcribe()`. The reverse translation is biologically not possible but is implemented in the function `seq_rev_translate()`. Because of the degeneracy of the genetic code, the reverse translation typically produces many ambiguous bases.
+
+```{r}
+dna_from_rna <- seq_rev_transcribe(x_rna)
+dna_from_rna
+
+dna_from_aa <- seq_rev_translate(x_aa)
+dna_from_aa
+```
+
+Finally, it is often useful to compute the complement and the reverse complement of DNA and RNA sequences. this can be achieved using the functions
+```{r}
+x_dna_comp <- seq_complement(x_dna)
+x_dna_comp_rev <- seq_reverse(x_dna_comp)
+
+dna(x_dna, x_dna_comp, x_dna_comp_rev)
+```
+
+
+
+### String operations
+
+The `bioseq` package comes with numerous functions to perform string operations at the sequence level. We will not review the complete list of functions provided by the package, but we will see below how use some of them. 
+
+We will take a simple example with 3 sequences. The first two sequences have four A repeated. We will focus on this particular pattern.
+
+```{r}
+x <- dna("CTGAAAACTG", "ATGAAAACTG", "CTGCTG")
+```
+
+#### Detection and selection
+
+Let's start by selecting only the sequences that match the pattern. This can be easily achieved by combining `seq_detect_pattern` with the `[]` operator.
+```{r}
+x[seq_detect_pattern(x, "AAAA")]
+```
+
+When using a simple character vector as pattern, the pattern is evaluated as a regular expression. This means that you can perform very complex queries using the regular expression syntax. Regular expressions are beyond the scope of this vignette but if you are interested to learn more the [*String* chapter](https://r4ds.had.co.nz/strings.html) from the book *R for Data Science* by Grolemund and Wickham is a good place to get started.
+
+As an example to illustrate regex support, the same pattern (AAAA) could be also formulated:
+
+```{r}
+x[seq_detect_pattern(x, "A{4}")]
+```
+
+Alternatively, a biological sequence (i.e a DNA, RNA or AA vector) can be used as pattern. This is less flexible than regular expression but can present several advantages. First it is safer and clearer because it forces the user to be more specific. Second, it allows to deal with ambiguous characters.
+
+```{r}
+# This works
+x[seq_detect_pattern(x, dna("AAAA"))]
+```
+
+```{r, eval=FALSE}
+# This fails because x is a DNA vector and pattern is an amino acid vector
+x[seq_detect_pattern(x, aa("AAAA"))]
+```
+
+```{r}
+# This works because W can be A or T.
+x[seq_detect_pattern(x, dna("WAWA"))]
+```
+
+However it is important to remember that a pattern which contains ambiguous characters is less specific and can capture several strings. How many and which ones? This can be answered using the function `seq_disambiguate_IUPAC`:
+
+```{r}
+seq_disambiguate_IUPAC(dna("WAWA"))
+```
+
+#### Remove and replace
+
+If the AAAA pattern is an incorrect insertion, we may want to remove it from the sequences. This can be done with the function `seq_remove_pattern()`.
+
+```{r}
+seq_remove_pattern(x, "A{4}")
+```
+
+We can also replace a specific pattern with another sequence.
+```{r}
+seq_replace_pattern(x,
+                    pattern = dna("AAAA"),
+                    replacement = dna("----"))
+```
+
+So far we performed operations using pattern recognition (functions with prefix `seq_` and suffix `_pattern`). Several operations (remove, replace, extract and crop) can also be applied to a specific region delimited by to positions (in and out). This is typically more useful with aligned sequences.
+
+Instead of removing a pattern it is possible to remove specific region by providing to positions.
+
+For example if we want to replace the last 3 nucleotides with CCC:
+
+```{r}
+x <- seq_remove_pattern(x, "A{4}")
+seq_replace_position(x, 4, 6,
+                     replacement = dna("CCC"))
+```
+
+It is important to know that patterns, positions and replacements are recycled along the sequences (usually the `x` argument). This means that if a pattern (vector or list), a position or a replacement is of length > 1, it will be replicated until it is the same length as x. This is powerful but it must be used with caution.
+The exemple below show an exemple with a vector of position (in) and a vector of replacement.
+
+```{r}
+x
+seq_replace_position(x, 1:3, 6,
+                     replacement = dna("-", "--", "---"))
+```

@@ -1,15 +1,41 @@
-Package: painseq
+Package: bioseq
 Type: Package
-Title: What the Package Does (Title Case)
+Title: A Toolbox for Manipulating Biological Sequences
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: 
+    c(person(given = "Francois",
+             family = "Keck",
+             role = c("aut", "cre", "cph"),
+             email = "francois.kecky@gmail.com",
+             comment = c(ORCID = "0000-0002-3323-4167"))
+    )
+Maintainer: Francois Keck <francois.keck@gmail.com>
+Description: Classes and functions to work with biological sequences (DNA, RNA and amino acid sequences).
+    Implements S3 infrastructure to work with biological sequences.
+    Provides a collection of functions to perform biological conversion among classes
+    (transcription, translation) and basic operations on sequences
+    (detection, selection and replacement based on positions or patterns).
+    The package also provides functions to import and export sequences from and to other package formats.
+License: GPL-3
+URL: https://github.com/fkeck/bioseq
+BugReports: https://github.com/fkeck/bioseq/issues
 Encoding: UTF-8
 LazyData: true
+Depends: R (>= 3.1.0)
+Imports: 
+    methods,
+    vctrs,
+    tibble,
+    ape,
+    crayon,
+    dplyr,
+    pillar,
+    stringr,
+    readr,
+    rlang
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat (>= 2.1.0)
 VignetteBuilder: knitr
+RoxygenNote: 6.1.1

@@ -1,0 +1,99 @@
+---
+title: "Operations on sequences"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Operations on sequences}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(bioseq)
+```
+
+## Biological operations
+
+### Transcribe and translate
+- seq_transcribe
+- seq_rev_transcribe
+- seq_translate
+- seq_rev_translate
+
+### Reverse and complement
+- seq_reverse
+- seq_complement
+
+
+## String operations
+
+### Crop
+- seq_crop_pattern
+- seq_crop_position
+
+### Detect
+- seq_detect_pattern
+
+### Remove
+- seq_remove_pattern
+- seq_remove_position
+- seq_remove_gap
+- seq_remove_ambiguous
+
+### Replace
+- seq_replace_pattern
+- seq_replace_position
+
+### Split
+- seq_split_pattern
+- seq_split_position
+- seq_split_stop
+- seq_split_codon
+- seq_split_kmer
+
+### Extract
+seq_extract_pattern
+seq_extract_position
+
+### Count
+- seq_count_pattern
+- seq_count_codon
+- seq_count_stop
+
+### Assemble
+- seq_combine
+- seq_duplicate
+- seq_insert
+
+
+## Stats operations
+- seq_nseq
+- seq_nchar
+- seq_stat_prop
+- seq_stat_gc
+
+## Summarize operations
+
+- seq_consensus(x, methods = c("chr_majority", "chr_ambiguity", "seq_centrality", "seq_majority"), weights)
+- seq_cluster(x, threshold = 0.97, method)
+
+## Simulations
+- seq_generate(what = "DNA", n_seq, n_base, code = 1)
+- seq_randomize(x)
+- seq_mutate(x, freq)
+
+## Apply and columns
+seq_transpose
+Apply any functions to rows/column. They are treated as separate character. To work on column strings see seq_transpose.
+seq_col_apply(x, .f)
+seq_row_apply(x, .f)
+
+## Misc
+- seq_disambiguate_IUPAC
+- seq_spellout
