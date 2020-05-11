@@ -19,7 +19,7 @@ The purpose of the `bioseq` package is to provide a collection of classes and fu
 
 It is assumed that you already installed the package either from CRAN using the function `install.packages("bioseq)` or from GitHub using `remotes::install_github("fkeck/bioseq")`. Now, let's get started by loading the package.
 
-```{r setup}
+```{r}
 library(bioseq)
 ```
 

@@ -24,7 +24,7 @@ Data obtained from generic repository like NCBI or BOLD often need to be filtere
 
 We start by loading the package `bioseq`. It is assumed that you already intalled the package either from CRAN using the function `install.packages("bioseq)` or from GitHub using `remotes::install_github("fkeck/bioseq")`.
 
-```{r setup}
+```{r}
 library(bioseq)
 ```
 
