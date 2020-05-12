@@ -59,11 +59,14 @@ seq_nchar(fra_data) %>% range()
 As explained in the introduction, we want to analyze the data in a dataframe as it present several advantages. The `bioseq` package has been designed to work smoothly with `tibbles`, an extension of the standard dataframe. Below, we use the `as_tibble` function to turn the DNA vector into a `tibble` with two columns (one for the names and one for the sequences). We will also clean the names and split them into two columns. Finally we create an extra column with the length (number of characters) of each sequence.
 
 ```{r}
-fra_data <- as_tibble(fra_data)
+fra_data <- as_tibble(fra_data, label = "labelx", sequence = "sequence")
+```
 
+
+```{r}
 fra_data <- fra_data %>% 
-  mutate(genbank_id = str_extract(label, "([^\\s]+)"),
-         taxa = str_extract(label, "(?<= ).*")) %>% 
+  mutate(genbank_id = str_extract(labelx, "([^\\s]+)"),
+         taxa = str_extract(labelx, "(?<= ).*")) %>% 
   select(genbank_id, taxa, sequence)
 
 fra_data <- fra_data %>% 
