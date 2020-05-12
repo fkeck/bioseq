@@ -22,7 +22,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Francois Keck \email{francois.kecky@gmail.com} (0000-0002-3323-4167) [copyright holder]
+\strong{Maintainer}: Francois Keck \email{francois.keck@gmail.com} (0000-0002-3323-4167) [copyright holder]
 
 }
 \keyword{internal}

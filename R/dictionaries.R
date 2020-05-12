@@ -228,16 +228,13 @@ dic_aa <- function(){
 #'
 #' List of the allowed characters for each type of sequences.
 #'
-#' @section DNA
-#'
+#' @section DNA:
 #' \code{A C G T W S M K R Y B D H V N -}
 #'
-#' @section RNA
-#'
+#' @section RNA:
 #' \code{A C G U W S M K R Y B D H V N -}
 #'
-#' @section AA
-#'
+#' @section AA:
 #' \code{A C D E F G H I K L M N P Q R S T V W Y B X Z J U O *}
 #'
 #' @references

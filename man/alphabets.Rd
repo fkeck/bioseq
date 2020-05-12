@@ -6,6 +6,21 @@
 \description{
 List of the allowed characters for each type of sequences.
 }
+\section{DNA}{
+
+\code{A C G T W S M K R Y B D H V N -}
+}
+
+\section{RNA}{
+
+\code{A C G U W S M K R Y B D H V N -}
+}
+
+\section{AA}{
+
+\code{A C D E F G H I K L M N P Q R S T V W Y B X Z J U O *}
+}
+
 \references{
 Nomenclature Committee of the International Union of Biochemistry (NC-IUB) (1986).
  Proc. Natl. Acad. Sci. USA. 83 (1): 4–8.
