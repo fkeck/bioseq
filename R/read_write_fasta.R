@@ -12,7 +12,7 @@ read_fasta <- function(file, type = "DNA") {
   fas <- stringr::str_split(fas, ">")
   fas <- stringr::str_split_fixed(fas[[1]][-1], "\n", n = 2)
   res <- stringr::str_replace_all(fas[, 2], "[:space:]", "")
-  names(res) <- stringr::str_remove_all(fas[, 1], "\n")
+  names(res) <- fas[, 1]
   if(type == "DNA") {
     return(dna(res))
   } else if (type == "RNA") {
