@@ -20,7 +20,7 @@
 #' require(ape)
 #' require(tibble)
 #' x <- rDNAbin(nrow = 10, ncol = 25)
-#' as_tibble(x)
+#' as_tibble.DNAbin(x)
 #'
 #'
 #' @name as-tibble-ape
