@@ -5,3 +5,5 @@ tidysequences.Rmd
 git_ignore
 ^LICENSE\.md$
 ^\.github$
+^doc$
+^Meta$
