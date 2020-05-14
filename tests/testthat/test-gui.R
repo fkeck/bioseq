@@ -1,0 +1,28 @@
+context("Print methods")
+
+test_that("Aliview", {
+  test_dna <- dna(A = "ACGT", B = "RWSAG")
+  test_DNAbin <- as_DNAbin(test_dna)
+  test_aa <- aa("GCA")
+  test_AAbin <- as_AAbin(test_aa)
+  expect_output(aliview(test_dna, aliview_exec = ""), NA)
+  expect_output(aliview(test_DNAbin, aliview_exec = ""), NA)
+  expect_output(aliview(test_aa, aliview_exec = ""), NA)
+  expect_output(aliview(test_AAbin, aliview_exec = ""), NA)
+  expect_error(aliview(1:10, aliview_exec = ""))
+})
+
+test_that("Seaview", {
+  require(ape)
+  test_dna <- dna(A = "ACGT", B = "RWSAG")
+  test_DNAbin <- as_DNAbin(test_dna)
+  test_aa <- aa("GCA")
+  test_AAbin <- as_AAbin(test_aa)
+  test_tree <- rphylo(10, 1, 1)
+  expect_output(seaview(test_dna, seaview_exec = ""), NA)
+  expect_output(seaview(test_DNAbin, seaview_exec = ""), NA)
+  expect_output(seaview(test_aa, seaview_exec = ""), NA)
+  expect_output(seaview(test_AAbin, seaview_exec = ""), NA)
+  expect_output(seaview(test_tree, seaview_exec = ""), NA)
+  expect_error(seaview(1:10, seaview_exec = ""))
+})
