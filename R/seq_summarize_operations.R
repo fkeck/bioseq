@@ -143,8 +143,6 @@ seq_consensus <- function(x, method = "chr_majority",
       }
       return(res)
     })
-    res <- stringr::str_flatten(res)
-    res <- coerce_seq_as_input(x = res, input = x, keep_names = FALSE)
   }
 
   if(method == "chr_ambiguity") {
@@ -178,7 +176,8 @@ seq_consensus <- function(x, method = "chr_majority",
     })
   }
 
+  res <- stringr::str_flatten(res)
+  res <- coerce_seq_as_input(x = res, input = x, keep_names = FALSE)
   return(res)
-
 }
 
