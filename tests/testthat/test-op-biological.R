@@ -36,6 +36,12 @@ test_that("Reverse translation AA -> DNA works", {
   expect_equal(seq_rev_translate(test), target)
 })
 
+test_that("Reverse translation AA -> DNA delete gaps works", {
+  test <- aa("TL--")
+  target <- dna("ACNYTNNNNNNN")
+  expect_equal(seq_rev_translate(test), target)
+})
+
 
 test_that("Translation DNA -> AA with different codes works", {
   test <- dna("AGA")

@@ -1,7 +1,7 @@
 context("AA class behaviour")
 
 test_that("Construction of aa vector works", {
-  test <- aa("ACGT", "RWSAG", "QQQ")
+  test <- aa("ACGT", "RWSAG", "QQQ-")
   expect_s3_class(test, "bioseq_aa")
   expect_type(test, "character")
   expect_length(test, 3)
