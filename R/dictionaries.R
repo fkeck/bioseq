@@ -134,7 +134,7 @@ dic_aa <- function(){
   list(
     alphabet = c("A", "C", "D", "E", "F", "G", "H", "I",
                  "K", "L", "M", "N", "P", "Q", "R", "S", "T",
-                 "V", "W", "Y", "B", "X", "Z", "J", "U", "O", "*"),
+                 "V", "W", "Y", "B", "X", "Z", "J", "U", "O", "*", "-"),
     ambiguity = list(
       "A" = "A",
       "C" = "C",
@@ -161,7 +161,8 @@ dic_aa <- function(){
               "M", "N", "P", "Q", "R", "S", "T", "V", "W", "Y", "*"),
       "Z" = c("E", "Q"),
       "J" = c("I", "L"),
-      "*" = "*"
+      "*" = "*",
+      "-" = "-"
     ),
     description = c(
       "A" = "alanine",
@@ -190,7 +191,8 @@ dic_aa <- function(){
       "J" = "leucine or isoleucine",
       "U" = "selenocysteine",
       "O" = "pyrrolysine",
-      "*" = "stop"
+      "*" = "stop",
+      "-" = "gap"
     ),
     short_description = c(
       "A" = "ala",
@@ -219,7 +221,8 @@ dic_aa <- function(){
       "J" = "xle",
       "U" = "sec",
       "O" = "pyl",
-      "*" = "stp"
+      "*" = "stp",
+      "-" = "gap"
     )
   )
 }
@@ -235,7 +238,7 @@ dic_aa <- function(){
 #' \code{A C G U W S M K R Y B D H V N -}
 #'
 #' @section AA:
-#' \code{A C D E F G H I K L M N P Q R S T V W Y B X Z J U O *}
+#' \code{A C D E F G H I K L M N P Q R S T V W Y B X Z J U O * -}
 #'
 #' @references
 #'  Nomenclature Committee of the
