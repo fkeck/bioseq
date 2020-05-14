@@ -17,7 +17,7 @@ Description: Classes and functions to work with biological sequences (DNA, RNA a
     (detection, selection and replacement based on positions or patterns).
     The package also provides functions to import and export sequences from and to other package formats.
 License: GPL-3
-URL: https://github.com/fkeck/bioseq
+URL: https://fkeck.github.io/bioseq/
 BugReports: https://github.com/fkeck/bioseq/issues
 Encoding: UTF-8
 LazyData: true
@@ -36,6 +36,7 @@ Imports:
 Suggests: 
     knitr,
     rmarkdown,
-    testthat (>= 2.1.0)
+    testthat (>= 2.1.0),
+    covr
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
