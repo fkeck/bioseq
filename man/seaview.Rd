@@ -25,6 +25,6 @@ alignment and phylogenetic tree building.
 Molecular Biology and Evolution 27(2):221-224.
 }
 \seealso{
-Other gui: \code{\link{aliview}}
+Other GUI wrappers: \code{\link{aliview}}
 }
-\concept{gui}
+\concept{GUI wrappers}

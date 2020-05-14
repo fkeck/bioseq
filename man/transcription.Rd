@@ -22,8 +22,8 @@ a vector of DNA for \code{seq_rev_transcribe}
 Transcribe DNA, reverse-transcribe RNA
 }
 \seealso{
-Other op-bio: \code{\link{rev_complement}},
+Other biological operations: \code{\link{rev_complement}},
   \code{\link{seq_rev_translate}},
   \code{\link{seq_translate}}
 }
-\concept{op-bio}
+\concept{biological operations}

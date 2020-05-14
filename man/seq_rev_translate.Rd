@@ -32,7 +32,7 @@ all.equal(x, z)
 
 }
 \seealso{
-Other op-bio: \code{\link{rev_complement}},
+Other biological operations: \code{\link{rev_complement}},
   \code{\link{seq_translate}}, \code{\link{transcription}}
 }
-\concept{op-bio}
+\concept{biological operations}

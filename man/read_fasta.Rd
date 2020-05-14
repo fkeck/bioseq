@@ -18,6 +18,6 @@ A DNA, RNA or AA vector (depending on \code{type} argument).
 Read sequences in FASTA format
 }
 \seealso{
-Other io: \code{\link{write_fasta}}
+Other input/output operations: \code{\link{write_fasta}}
 }
-\concept{io}
+\concept{input/output operations}
