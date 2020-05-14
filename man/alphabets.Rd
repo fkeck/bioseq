@@ -18,7 +18,7 @@ List of the allowed characters for each type of sequences.
 
 \section{AA}{
 
-\code{A C D E F G H I K L M N P Q R S T V W Y B X Z J U O *}
+\code{A C D E F G H I K L M N P Q R S T V W Y B X Z J U O * -}
 }
 
 \references{
