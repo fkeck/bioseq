@@ -19,7 +19,7 @@ where to start translation.}
 as a possible codon start and tranlated to methionine.}
 }
 \value{
-An amino acid vector (bioseq_aa).
+An amino acid vector (\code{bioseq_aa}).
 }
 \description{
 Translate DNA/RNA sequences into amino acids
@@ -29,7 +29,7 @@ Several genetic codes can be used for translation. See \link{genetic-codes}
 to get the list of available genetic codes and their ID number.
 
 Gaps (-) are interpreted as unknown nucleotides (N) but can be
-removed prior to the translation with the function seq_remove_gap.
+removed prior to the translation with the function \code{seq_remove_gap}.
 
 The function deals with ambiguities on both sides.
 This means that if ambiguous codons cannot

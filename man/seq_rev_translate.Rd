@@ -21,6 +21,10 @@ Such operation does not exist in nature but is provided for completeness.
 Because of codon degeneracy it is expected
 to produce many ambiguous nucleotides.
 }
+\details{
+Gaps (-) are interpreted as unknown amino acids (X) but can be
+removed prior to the translation with the function \code{seq_remove_gap}.
+}
 \examples{
 
 x <- dna("ACTTTGGCTAAG")
