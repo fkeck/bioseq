@@ -44,7 +44,7 @@ seq_rev_transcribe <- function(x) {
 #' to get the list of available genetic codes and their ID number.
 #'
 #' Gaps (-) are interpreted as unknown nucleotides (N) but can be
-#' removed prior to the translation with the function seq_remove_gap.
+#' removed prior to the translation with the function \code{seq_remove_gap}.
 #'
 #' The function deals with ambiguities on both sides.
 #' This means that if ambiguous codons cannot
@@ -53,7 +53,7 @@ seq_rev_transcribe <- function(x) {
 #' (X in the most extreme case).
 #'
 #'
-#' @return An amino acid vector (bioseq_aa).
+#' @return An amino acid vector (\code{bioseq_aa}).
 #' @family biological operations
 #' @export
 #'
@@ -159,6 +159,10 @@ seq_translate <- function(x, code = 1, codon_frame = 1, codon_init = FALSE) {
 #' @param code an integer indicating the genetic code to use for
 #' reverse translation (default 1 uses the Standard genetic code). See Details.
 #'
+#' @details
+#' Gaps (-) are interpreted as unknown amino acids (X) but can be
+#' removed prior to the translation with the function \code{seq_remove_gap}.
+#'
 #' @return a vector of DNA sequences.
 #' @family biological operations
 #' @export
@@ -185,6 +189,9 @@ seq_rev_translate <- function(x, code = 1) {
   dic_dna_ambig <- dic_dna()$ambiguity
   dic_aa_ambig <- dic_aa()$ambiguity
   n_dna_ambig <- vapply(dic_dna_ambig, length, vector("integer", 1))
+
+  # Interpret gaps as X
+  x <- stringr::str_replace_all(x, "-", "X")
 
   x_split <- strsplit(x, "")
   n_aa <- vapply(x_split, length, vector("integer", 1))
