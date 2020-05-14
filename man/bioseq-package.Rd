@@ -16,7 +16,7 @@ Classes and functions to work with biological sequences (DNA, RNA and amino acid
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/fkeck/bioseq}
+  \item \url{https://fkeck.github.io/bioseq/}
   \item Report bugs at \url{https://github.com/fkeck/bioseq/issues}
 }
 
