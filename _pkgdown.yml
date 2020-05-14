@@ -1,0 +1,46 @@
+reference:
+- title: Biological sequence classes
+- contents:
+  - aa
+  - dna
+  - rna
+  - starts_with("new_")
+  - starts_with("is_")
+- title: Conversion and coercion
+- contents:
+  - starts_with("as_")
+- title: Data
+- contents:
+  - has_keyword("datasets")
+- title: I/O
+- contents:
+  - starts_with("read_")
+  - starts_with("write_")
+- title: GUI
+- contents:
+  - aliview
+  - seaview
+- title: Operations on sequences
+- subtitle: Biological operations
+- contents:
+  - matches("transcribe|translate|reverse|complement")
+- subtitle: String-related operations
+- contents:
+  - matches("_pattern$|_position$|^seq_split_kmer$|^seq_combine$")
+- subtitle: Aggregate operations
+- contents:
+  - seq_cluster
+  - seq_consensus
+- subtitle: Utilities
+- contents:
+  - seq_nseq
+  - seq_nchar
+  - seq_stat_prop
+  - seq_stat_gc
+  - seq_disambiguate_IUPAC
+  - seq_spellout
+- title: Genetic codes and alphabets
+- contents:
+  - alphabets
+  - dic_genetic_codes
+  - genetic-codes
