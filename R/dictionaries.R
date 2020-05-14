@@ -238,7 +238,8 @@ dic_aa <- function(){
 #' \code{A C D E F G H I K L M N P Q R S T V W Y B X Z J U O *}
 #'
 #' @references
-#'  Nomenclature Committee of the International Union of Biochemistry (NC-IUB) (1986).
+#'  Nomenclature Committee of the
+#'  International Union of Biochemistry (NC-IUB) (1986).
 #'  Proc. Natl. Acad. Sci. USA. 83 (1): 4–8.
 #'
 #'  Nomenclature and Symbolism for Amino Acids and Peptides.
