@@ -10,5 +10,6 @@ dic_genetic_codes()
 A list of genetic code tables for DNA/RNA translation.
 }
 \description{
-The function returns a list of named vectors with Start, Stop and Full_name attributes.
+The function returns a list of named vectors with
+Start, Stop and Full_name attributes.
 }

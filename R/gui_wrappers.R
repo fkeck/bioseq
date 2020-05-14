@@ -14,6 +14,7 @@
 #' alignment and phylogenetic tree building.
 #' Molecular Biology and Evolution 27(2):221-224.
 #'
+#' @family GUI wrappers
 #' @export
 #'
 seaview <- function(x, seaview_exec = "seaview"){
@@ -52,6 +53,7 @@ seaview <- function(x, seaview_exec = "seaview"){
 #' @references Larsson, A. (2014). AliView: a fast and lightweight alignment
 #' viewer and editor for large data sets. Bioinformatics30(22): 3276-3278.
 #'
+#' @family GUI wrappers
 #' @export
 #'
 aliview <- function(x, aliview_exec = "aliview"){

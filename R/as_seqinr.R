@@ -5,6 +5,7 @@
 #' @param ... Other parameters.
 #'
 #' @return An alignment object.
+#' @family conversions
 #' @export
 #'
 #'

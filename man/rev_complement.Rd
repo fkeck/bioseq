@@ -26,3 +26,8 @@ seq_reverse(x)
 seq_complement(x)
 
 }
+\seealso{
+Other op-bio: \code{\link{seq_rev_translate}},
+  \code{\link{seq_translate}}, \code{\link{transcription}}
+}
+\concept{op-bio}

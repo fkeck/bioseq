@@ -4,7 +4,6 @@
 #'
 #' @param x a character vector.
 #'
-#'
 #' @export
 #'
 new_aa <- function(x = character()) {
@@ -24,6 +23,7 @@ new_aa <- function(x = character()) {
 #' @param ... character to turn into AA. Can be a set of name-value pairs.
 #'
 #' @return  vector of class bioseq_aa
+#' @family classes
 #' @export
 #'
 #' @examples
@@ -48,6 +48,7 @@ aa <- function(...) {
 #' @param x An object to coerce.
 #'
 #' @return An amino acid vector of class bioseq_aa
+#' @family conversions
 #' @export
 #'
 as_aa <- function(x) {
@@ -77,6 +78,7 @@ is_aa <- function(x) {
 # Formatting
 
 #' @export
+#'
 print.bioseq_aa <- function(x, n_bases = 60, n_seq = 12, ...){
   print_sequences(x, n_bases = n_bases, n_seq = n_seq, seq_type = "AA")
 }

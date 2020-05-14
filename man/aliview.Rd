@@ -20,3 +20,7 @@ The software must be installed on the computer.
 Larsson, A. (2014). AliView: a fast and lightweight alignment
 viewer and editor for large data sets. Bioinformatics30(22): 3276-3278.
 }
+\seealso{
+Other gui: \code{\link{seaview}}
+}
+\concept{gui}

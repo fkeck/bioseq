@@ -52,4 +52,7 @@ seq_cluster(x)
 \seealso{
 Function \code{\link{seq_consensus}} to compute consensus
 and representative sequences for clusters.
+
+Other op-agreggation: \code{\link{seq_consensus}}
 }
+\concept{op-agreggation}

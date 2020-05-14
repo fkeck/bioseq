@@ -40,3 +40,7 @@ x <- c("-----TACGCAGTAAAAGCTACTGATG",
 x <- dna(x)
 seq_consensus(x)
 }
+\seealso{
+Other op-agreggation: \code{\link{seq_cluster}}
+}
+\concept{op-agreggation}

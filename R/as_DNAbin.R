@@ -6,6 +6,7 @@
 #' @param ... Other parameters.
 #'
 #' @return A DNAbin object.
+#' @family conversions
 #' @export
 #'
 #'
@@ -63,6 +64,7 @@ as_DNAbin.tbl_df <- function(x, sequences, labels = NULL, ...){
 #' @param ... Other parameters.
 #'
 #' @return An AAbin object.
+#' @family conversions
 #' @export
 #'
 #'

@@ -25,3 +25,9 @@ seq_stat_prop(x)
 seq_stat_prop(x, gaps = TRUE)
 
 }
+\seealso{
+Other op-misc: \code{\link{seq_disambiguate_IUPAC}},
+  \code{\link{seq_nchar}}, \code{\link{seq_nseq}},
+  \code{\link{seq_spellout}}, \code{\link{seq_stat_gc}}
+}
+\concept{op-misc}

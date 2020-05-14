@@ -30,3 +30,9 @@ z <- seq_translate(y)
 seq_disambiguate_IUPAC(z)
 
 }
+\seealso{
+Other op-misc: \code{\link{seq_nchar}},
+  \code{\link{seq_nseq}}, \code{\link{seq_spellout}},
+  \code{\link{seq_stat_gc}}, \code{\link{seq_stat_prop}}
+}
+\concept{op-misc}

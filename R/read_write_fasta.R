@@ -5,7 +5,9 @@
 #' @param type Type of data. Can be "DNA" (the default), "RNA" or "AA".
 #'
 #' @return A DNA, RNA or AA vector (depending on \code{type} argument).
+#' @family input/output operations
 #' @export
+#'
 #'
 read_fasta <- function(file, type = "DNA") {
   fas <- readr::read_file(file)
@@ -29,7 +31,7 @@ read_fasta <- function(file, type = "DNA") {
 #' @param file a path to a file or a connection.
 #' @param append a logical. If \code{TRUE} append the data to the file.
 #' If \code{FALSE} (default), overwrite the file.
-#'
+#' @family input/output operations
 #' @export
 #'
 write_fasta <- function(x, file, append = FALSE) {

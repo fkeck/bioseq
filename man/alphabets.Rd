@@ -22,7 +22,8 @@ List of the allowed characters for each type of sequences.
 }
 
 \references{
-Nomenclature Committee of the International Union of Biochemistry (NC-IUB) (1986).
+Nomenclature Committee of the
+ International Union of Biochemistry (NC-IUB) (1986).
  Proc. Natl. Acad. Sci. USA. 83 (1): 4–8.
 
  Nomenclature and Symbolism for Amino Acids and Peptides.

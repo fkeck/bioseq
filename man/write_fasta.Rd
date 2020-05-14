@@ -17,3 +17,7 @@ If \code{FALSE} (default), overwrite the file.}
 \description{
 Write sequences in FASTA format
 }
+\seealso{
+Other io: \code{\link{read_fasta}}
+}
+\concept{io}

@@ -16,11 +16,13 @@ The number in bold can be used to select a table in appropriate functions.
 
 \strong{3}\code{.    }Yeast Mitochondrial
 
-\strong{4}\code{.    }Mold Mitochondrial; Protozoan Mitochondrial; Coelenterate Mitochondrial; Mycoplasma; Spiroplasma
+\strong{4}\code{.    }Mold Mitochondrial; Protozoan Mitochondrial;
+Coelenterate Mitochondrial; Mycoplasma; Spiroplasma
 
 \strong{5}\code{.    }Invertebrate Mitochondrial
 
-\strong{6}\code{.    }Ciliate Nuclear; Dasycladacean Nuclear; Hexamita Nuclear
+\strong{6}\code{.    }Ciliate Nuclear; Dasycladacean Nuclear;
+Hexamita Nuclear
 
 \strong{9}\code{.    }Echinoderm Mitochondrial; Flatworm Mitochondrial
 
@@ -66,6 +68,8 @@ The number in bold can be used to select a table in appropriate functions.
 }
 
 \references{
-Andrzej (Anjay) Elzanowski and Jim Ostell at National Center for Biotechnology Information (NCBI), Bethesda, Maryland, U.S.A.
+Andrzej (Anjay) Elzanowski and Jim Ostell at
+National Center for Biotechnology Information (NCBI),
+Bethesda, Maryland, U.S.A.
 \url{https://www.ncbi.nlm.nih.gov/Taxonomy/taxonomyhome.html/index.cgi?chapter=tgencodes}
 }

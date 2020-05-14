@@ -31,3 +31,8 @@ z
 all.equal(x, z)
 
 }
+\seealso{
+Other op-bio: \code{\link{rev_complement}},
+  \code{\link{seq_translate}}, \code{\link{transcription}}
+}
+\concept{op-bio}

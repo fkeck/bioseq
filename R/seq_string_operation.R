@@ -42,6 +42,7 @@
 #' for the underlying implementation.
 #'
 #' @return A logical vector.
+#' @family string operations
 #' @export
 #'
 #' @examples
@@ -68,6 +69,7 @@ seq_detect_pattern <- function(x, pattern) {
 #' @inheritSection seq_detect_pattern Patterns
 #' @return  A cropped DNA, RNA or AA vector.
 #'
+#' @family string operations
 #' @seealso
 #' \code{\link[stringi]{stri_extract}} from \pkg{stringi} and
 #' \code{\link[stringr]{str_extract}} from \pkg{stringr}
@@ -97,7 +99,7 @@ seq_crop_pattern <- function(x, pattern_in, pattern_out) {
 #' @inheritParams seq_detect_pattern
 #' @inheritSection seq_detect_pattern Patterns
 #' @return A list of vectors of same class as \code{x}.
-#'
+#' @family string operations
 #' @seealso
 #' \code{\link[stringi]{stri_extract}} from \pkg{stringi} and
 #' \code{\link[stringr]{str_extract}} from \pkg{stringr}
@@ -127,7 +129,7 @@ seq_extract_pattern <- function(x, pattern) {
 #' @inheritSection seq_detect_pattern Patterns
 #' @return A vector of same class as \code{x}.
 #' @export
-#'
+#' @family string operations
 #' @seealso
 #' \code{\link[stringr]{str_remove}} from \pkg{stringr}
 #' for the underlying implementation.
@@ -154,7 +156,7 @@ seq_remove_pattern <- function(x, pattern) {
 #' @param replacement a vector of replacements.
 #' @inheritSection seq_detect_pattern Patterns
 #' @return A vector of same class as \code{x}.
-#'
+#' @family string operations
 #' @seealso
 #' \code{\link[stringi]{stri_replace}} from \pkg{stringi} and
 #' \code{\link[stringr]{str_replace}} from \pkg{stringr}
@@ -185,7 +187,7 @@ seq_replace_pattern <- function(x, pattern, replacement) {
 #' @inheritParams seq_detect_pattern
 #' @inheritSection seq_detect_pattern Patterns
 #' @return A list of vectors of same class as \code{x}.
-#'
+#' @family string operations
 #' @seealso
 #' \code{\link[stringi]{stri_split}} from \pkg{stringi} and
 #' \code{\link[stringr]{str_split}} from \pkg{stringr}
@@ -215,7 +217,7 @@ seq_split_pattern <- function(x, pattern) {
 #' @inheritParams seq_detect_pattern
 #' @inheritSection seq_detect_pattern Patterns
 #' @return An integer vector.
-#'
+#' @family string operations
 #' @seealso
 #' \code{\link[stringi]{stri_count}} from \pkg{stringi} and
 #' \code{\link[stringr]{str_count}} from \pkg{stringr}
@@ -249,7 +251,7 @@ seq_count_pattern <- function(x, pattern) {
 #' @param position_out an integer giving the position where to stop cropping.
 #'
 #' @return A cropped DNA, RNA or AA vector.
-#'
+#' @family string operations
 #' @seealso
 #' \code{\link[stringi]{stri_sub}} from \pkg{stringi} and
 #' \code{\link[stringr]{str_sub}} from \pkg{stringr}
@@ -283,7 +285,7 @@ seq_crop_position <- function(x, position_in = 1, position_out = -1) {
 #' @param position_out an integer giving the position where to stop to remove.
 #'
 #' @return A vector of same class as \code{x}.
-#'
+#' @family string operations
 #' @seealso
 #' \code{\link[stringr]{str_remove}} from \pkg{stringr}
 #' for the underlying implementation.
@@ -317,7 +319,7 @@ seq_remove_position <- function(x, position_in, position_out) {
 #' @param replacement a vector of replacements.
 #'
 #' @return A vector of same class as \code{x}.
-#'
+#' @family string operations
 #' @seealso
 #' \code{\link[stringi]{stri_replace}} from \pkg{stringi} and
 #' \code{\link[stringr]{str_replace}} from \pkg{stringr}
@@ -347,7 +349,7 @@ seq_replace_position <- function(x, position_in, position_out, replacement){
 #' @param position_out an integer giving the position where to stop to extract.
 #'
 #' @return A vector of same class as \code{x}.
-#'
+#' @family string operations
 #' @seealso
 #' \code{\link[stringi]{stri_extract}} from \pkg{stringi} and
 #' \code{\link[stringr]{str_extract}} from \pkg{stringr}
@@ -387,7 +389,7 @@ seq_extract_position <- function(x, position_in, position_out){
 #'
 #' @return A vector of sequences (if collapse is \code{NULL}).
 #' A vector with a single sequence, otherwise.
-#'
+#' @family string operations
 #' @seealso
 #' \code{\link[stringi]{stri_join}} from \pkg{stringi} and
 #' \code{\link[stringr]{str_c}} from \pkg{stringr}
@@ -432,7 +434,7 @@ seq_remove_gap <- function(x) {
 #' @param k an integer giving the size of the k-mer.
 #'
 #' @return a list of k-mer vectors of same class as \code{x}.
-#'
+#' @family string operations
 #' @seealso
 #' \code{\link{seq_split_pattern}}.
 #'

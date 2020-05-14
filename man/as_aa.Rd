@@ -15,3 +15,10 @@ An amino acid vector of class bioseq_aa
 \description{
 Coercion to an amino acid (AA) vector
 }
+\seealso{
+Other conversions: \code{\link{as-tibble-ape}},
+  \code{\link{as-tibble-bioseq}}, \code{\link{as_AAbin}},
+  \code{\link{as_DNAbin}}, \code{\link{as_dna}},
+  \code{\link{as_rna}}, \code{\link{as_seqinr_alignment}}
+}
+\concept{conversions}

@@ -6,6 +6,7 @@
 #'
 #' @return A vector of RNA for \code{seq_transcribe},
 #' a vector of DNA for \code{seq_rev_transcribe}
+#' @family biological operations
 #' @export
 #'
 #' @name transcription
@@ -53,6 +54,7 @@ seq_rev_transcribe <- function(x) {
 #'
 #'
 #' @return An amino acid vector (bioseq_aa).
+#' @family biological operations
 #' @export
 #'
 #' @examples
@@ -158,6 +160,7 @@ seq_translate <- function(x, code = 1, codon_frame = 1, codon_init = FALSE) {
 #' reverse translation (default 1 uses the Standard genetic code). See Details.
 #'
 #' @return a vector of DNA sequences.
+#' @family biological operations
 #' @export
 #'
 #' @examples
@@ -236,6 +239,7 @@ seq_rev_translate <- function(x, code = 1) {
 #'
 #' @return A reverse or complement sequence (same class as the input).
 #' @export
+#' @family biological operations
 #' @name rev_complement
 #'
 #' @examples

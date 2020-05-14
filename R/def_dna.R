@@ -23,6 +23,7 @@ new_dna <- function(x = character()) {
 #' @param ... characters to turn into DNA. Can be a set of name-value pairs.
 #'
 #' @return a vector of class \code{bioseq_dna}
+#' @family classes
 #' @export
 #'
 #' @examples
@@ -47,6 +48,7 @@ dna <- function(...) {
 #' @param x An object to coerce.
 #'
 #' @return A DNA vector of class bioseq_dna
+#' @family conversions
 #' @export
 #'
 as_dna <- function(x) {

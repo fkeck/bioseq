@@ -4,7 +4,6 @@
 #'
 #' @param x a character vector.
 #'
-#'
 #' @export
 #'
 new_rna <- function(x = character()) {
@@ -24,6 +23,7 @@ new_rna <- function(x = character()) {
 #' @param ... characters to turn into RNA. Can be a set of name-value pairs.
 #'
 #' @return a vector of class bioseq_rna
+#' @family classes
 #' @export
 #'
 #' @examples
@@ -48,6 +48,7 @@ rna <- function(...) {
 #' @param x An object to coerce.
 #'
 #' @return A RNA vector of class bioseq_rna
+#' @family conversions
 #' @export
 #'
 as_rna <- function(x) {

@@ -5,6 +5,7 @@
 #' @param gaps if \code{FALSE} gaps are ignored.
 #'
 #' @return An integer vector giving the size of each sequence of \code{x}.
+#' @family op-misc
 #' @export
 #'
 #' @examples
@@ -33,6 +34,7 @@ seq_nchar <- function(x, gaps = TRUE) {
 #' @param x a DNA, RNA or AA vector.
 #'
 #' @return an integer.
+#' @family op-misc
 #' @export
 #'
 seq_nseq <- function(x) {
@@ -48,6 +50,7 @@ seq_nseq <- function(x) {
 #'
 #' @return A list of vectors indicating the
 #' proportion of characters in each sequence.
+#' @family op-misc
 #' @export
 #'
 #' @examples
@@ -91,6 +94,7 @@ seq_stat_prop <- function(x, gaps = FALSE) {
 #' @details Ambiguous characters (other than S and W) are ignored.
 #'
 #' @return A numeric vector of G+C proportions.
+#' @family op-misc
 #' @export
 #'
 #' @examples

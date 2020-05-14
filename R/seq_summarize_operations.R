@@ -23,7 +23,7 @@
 #'}
 #'
 #' @return An integer vector with group memberships.
-#'
+#' @family agreggation operations
 #' @seealso Function \code{\link{seq_consensus}} to compute consensus
 #' and representative sequences for clusters.
 #'
@@ -90,6 +90,7 @@ seq_cluster <- function(x, threshold = 0.05, method = "complete") {
 #' Use gaps = FALSE to ignore gaps.
 #'
 #' @return A consensus sequence
+#' @family agreggation operations
 #' @export
 #'
 #' @examples

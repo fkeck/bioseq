@@ -25,3 +25,9 @@ x <- dna(c("ATGCAGA", "GGR-----","TTGCCTAGKTGAACC"))
 seq_stat_gc(x)
 
 }
+\seealso{
+Other op-misc: \code{\link{seq_disambiguate_IUPAC}},
+  \code{\link{seq_nchar}}, \code{\link{seq_nseq}},
+  \code{\link{seq_spellout}}, \code{\link{seq_stat_prop}}
+}
+\concept{op-misc}

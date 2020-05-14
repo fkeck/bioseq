@@ -8,6 +8,7 @@
 #'
 #' @return A list of DNA, RNA or AA vectors (depending on the input)
 #' giving all possible combinations.
+#' @family op-misc
 #' @export
 #'
 #' @examples
@@ -63,6 +64,7 @@ seq_disambiguate_IUPAC <- function(x) {
 #'
 #' @return A character vector if collapse is not \code{NULL}.
 #' A list of character vectors otherwise.
+#' @family op-misc
 #' @export
 #'
 #' @examples

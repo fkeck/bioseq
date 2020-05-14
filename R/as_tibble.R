@@ -15,6 +15,7 @@
 #' column (otherwise).
 #'
 #' @export
+#' @family conversions
 #'
 #' @examples
 #' require(ape)
@@ -54,6 +55,7 @@ as_tibble.AAbin <- function(x, label = "label", sequence = "sequence", ...) {
 #' or one column (otherwise).
 #'
 #' @export
+#' @family conversions
 #'
 #' @examples
 #'

@@ -25,3 +25,7 @@ x <- c("AGGTGC", "TTCGA")
 rna(x)
 
 }
+\seealso{
+Other classes: \code{\link{aa}}, \code{\link{dna}}
+}
+\concept{classes}

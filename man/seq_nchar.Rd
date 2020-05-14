@@ -24,3 +24,9 @@ seq_nchar(x)
 seq_nchar(x, gaps = FALSE)
 
 }
+\seealso{
+Other op-misc: \code{\link{seq_disambiguate_IUPAC}},
+  \code{\link{seq_nseq}}, \code{\link{seq_spellout}},
+  \code{\link{seq_stat_gc}}, \code{\link{seq_stat_prop}}
+}
+\concept{op-misc}
