@@ -98,7 +98,8 @@ test_that("Combine sequences works", {
 test_that("Combine sequences from two different classes fails", {
   x <- dna("ACGTTAGTGTAGCCGT", "CTCGAAATGA")
   y <- rna("UUUUUG", "AAAAAAAAA")
-  expect_error(seq_combine(x, y), "Vectors must be of same class to be combined.")
+  expect_error(seq_combine(x, y),
+               "Vectors must be of same class to be combined.")
 })
 
 test_that("Split kmers works", {
