@@ -20,6 +20,8 @@ The purpose of this vignette is to illustrate the use of the `bioseq` package wi
 
 Data obtained from generic repository like NCBI or BOLD often need to be filtered and cleaned before they can be used in a project. Here we show how this can be accomplished using `bioseq` and more particularly how to perform some basic cleaning, extract a specific barcode region from raw sequences, and use functions from other packages. Some of the code chunks presented here can be adapted to reconstruct a phylogeny for a particular taxonomic group or to prepare a reference database against which metabarcoding sequencing reads will be matched for taxonomic identification.
 
+![Fragilaria pararumpens. Photo by Dr Maria Kahlert](f_pararumpens.png)
+
 ## Loading packages
 
 We start by loading the package `bioseq`. It is assumed that you already intalled the package either from CRAN using the function `install.packages("bioseq)` or from GitHub using `remotes::install_github("fkeck/bioseq")`.
