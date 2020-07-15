@@ -4,7 +4,7 @@
 \alias{seaview}
 \title{SeaView: DNA sequences and phylogenetic tree viewer}
 \usage{
-seaview(x, seaview_exec = "seaview")
+seaview(x, seaview_exec = options("bioseq.seaview.exec"))
 }
 \arguments{
 \item{x}{a DNA, RNA or AA vector.
@@ -17,6 +17,13 @@ a phylogenetic tree (class \code{phylo}).}
 This function opens SeaView (Gouy, Guindon & Gascuel, 2010)
 to visualize biological sequences and phylogenetic trees.
 The software must be installed on the computer.
+}
+\details{
+By default, the function assumes that the executable is installed
+in a directory located on the PATH. Alternatively the user can provide
+an absolute path to the executable which can be stored in the global
+options settings using
+\code{options(bioseq.seaview.exec = "my_path_to_seaview")}.
 }
 \references{
 Gouy M., Guindon S. & Gascuel O. (2010) SeaView version 4 :

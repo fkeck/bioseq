@@ -4,7 +4,7 @@
 \alias{aliview}
 \title{AliView: DNA sequences viewer}
 \usage{
-aliview(x, aliview_exec = "aliview")
+aliview(x, aliview_exec = options("bioseq.aliview.exec"))
 }
 \arguments{
 \item{x}{a DNA, RNA or AA vector.
@@ -15,6 +15,13 @@ Alternatively a \code{DNAbin} or \code{AAbin} object.}
 \description{
 This function uses AliView (Larsson, 2014) to visualize DNA sequences.
 The software must be installed on the computer.
+}
+\details{
+By default, the function assumes that the executable is installed
+in a directory located on the PATH. Alternatively the user can provide
+an absolute path to the executable which can be stored in the global
+options settings using
+\code{options(bioseq.aliview.exec = "my_path_to_aliview")}.
 }
 \references{
 Larsson, A. (2014). AliView: a fast and lightweight alignment
