@@ -79,8 +79,10 @@ is_aa <- function(x) {
 
 #' @export
 #'
-print.bioseq_aa <- function(x, n_bases = 60, n_seq = 12, ...){
-  print_sequences(x, n_bases = n_bases, n_seq = n_seq, seq_type = "AA")
+print.bioseq_aa <- function(x, n_bases = 60, n_seq = 12,
+                            color = options("bioseq.color"), ...){
+  print_sequences(x, n_bases = n_bases, n_seq = n_seq,
+                  seq_type = "AA", color = color)
 }
 
 #' Internal formating

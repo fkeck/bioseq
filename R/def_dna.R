@@ -68,7 +68,7 @@ as_dna <- function(x) {
 #' x <- c("AGGTGC", "TTCGA")
 #' is_dna(x)
 #' y <- dna(x)
-#' is_dna(x)
+#' is_dna(y)
 #'
 is_dna <- function(x) {
   inherits(x, "bioseq_dna")
@@ -78,8 +78,10 @@ is_dna <- function(x) {
 # Formatting
 
 #' @export
-print.bioseq_dna <- function(x, n_bases = 60, n_seq = 12, ...){
-  print_sequences(x, n_bases = n_bases, n_seq = n_seq, seq_type = "DNA")
+print.bioseq_dna <- function(x, n_bases = 60, n_seq = 12,
+                             color = options("bioseq.color"), ...){
+  print_sequences(x, n_bases = n_bases, n_seq = n_seq,
+                  seq_type = "DNA", color = color)
 }
 
 #' Internal formating

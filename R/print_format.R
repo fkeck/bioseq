@@ -43,7 +43,9 @@ bioseq_color <- function(seq_type) {
 }
 
 
-print_sequences <- function(x, n_bases = 60, n_seq = 12, seq_type = "DNA"){
+print_sequences <- function(x, n_bases = 60, n_seq = 12,
+                            seq_type = "DNA",
+                            color = options("bioseq.color")){
 
   # FIX PRINT WITH NA VALUES
   if(length(x) > n_seq){
@@ -66,8 +68,9 @@ print_sequences <- function(x, n_bases = 60, n_seq = 12, seq_type = "DNA"){
   }
 
   body_seq <- stringr::str_trunc(x_sub, width = n_bases, ellipsis = "")
-  sequence_col <- bioseq_color(seq_type)
 
+  if(color != "none"){
+  sequence_col <- bioseq_color(seq_type)
   body_seq <- stringr::str_split(body_seq, "")
   body_seq <- lapply(body_seq, function(x) {
     if(is.na(x)[1] & length(x) == 1){
@@ -79,6 +82,7 @@ print_sequences <- function(x, n_bases = 60, n_seq = 12, seq_type = "DNA"){
   })
   body_seq <- vapply(body_seq, stringr::str_c,
                      vector("character", 1), collapse = "")
+  }
 
   if(is.null(x_sub_names)){
     margin_left <- rep("> ", x_sub_len)

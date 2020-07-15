@@ -78,8 +78,10 @@ is_rna <- function(x) {
 # Formatting
 
 #' @export
-print.bioseq_rna <- function(x, n_bases = 60, n_seq = 12, ...){
-  print_sequences(x, n_bases = n_bases, n_seq = n_seq, seq_type = "RNA")
+print.bioseq_rna <- function(x, n_bases = 60, n_seq = 12,
+                             color = options("bioseq.color"), ...){
+  print_sequences(x, n_bases = n_bases, n_seq = n_seq,
+                  seq_type = "RNA", color = color)
 }
 
 
