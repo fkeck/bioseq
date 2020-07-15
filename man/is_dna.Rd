@@ -19,6 +19,6 @@ This function returns TRUE for objects of class bioseq_dna
 x <- c("AGGTGC", "TTCGA")
 is_dna(x)
 y <- dna(x)
-is_dna(x)
+is_dna(y)
 
 }
