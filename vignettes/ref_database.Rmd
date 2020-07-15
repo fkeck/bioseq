@@ -1,6 +1,8 @@
 ---
 title: "Cleaning and exploring NCBI data with the `bioseq` package"
 output: rmarkdown::html_vignette
+resource_files:
+  - vignettes/f_pararumpens.png
 vignette: >
   %\VignetteIndexEntry{Reference database preparation with the `bioseq` package}
   %\VignetteEngine{knitr::rmarkdown}
