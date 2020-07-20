@@ -1,7 +1,7 @@
 Package: bioseq
 Type: Package
 Title: A Toolbox for Manipulating Biological Sequences
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     c(person(given = "Francois",
              family = "Keck",
