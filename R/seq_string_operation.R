@@ -117,7 +117,8 @@ seq_extract_pattern <- function(x, pattern) {
   check_dna_rna_aa(x)
   pattern <- check_and_prepare_pattern(x, pattern)
   res <- stringr::str_extract_all(string = x, pattern = pattern)
-  res <- lapply(res, coerce_seq_as_input, input = x)
+  res <- lapply(res, coerce_seq_as_input, input = x, keep_names = FALSE)
+  names(res) <- names(x)
   return(res)
 }
 
@@ -197,7 +198,7 @@ seq_replace_pattern <- function(x, pattern, replacement) {
 #'
 #' @examples
 #'
-#' x <- dna("ACGTTAGTGTAGCCGT", "CTCGAAATGA")
+#' x <- dna(a = "ACGTTAGTGTAGCCGT", b = "CTCGAAATGA")
 #' seq_split_pattern(x, dna("AAA"))
 #' seq_split_pattern(x, "T.G")
 #'
@@ -206,7 +207,8 @@ seq_split_pattern <- function(x, pattern) {
   pattern <- check_and_prepare_pattern(x, pattern)
   res <- stringr::str_split(string = x, pattern = pattern,
                             n = Inf, simplify = FALSE)
-  res <- lapply(res, coerce_seq_as_input, input = x)
+  res <- lapply(res, coerce_seq_as_input, input = x, keep_names = FALSE)
+  names(res) <- names(x)
   return(res)
 }
 
@@ -442,7 +444,7 @@ seq_remove_gap <- function(x) {
 #'
 #' @examples
 #'
-#' x <- dna("ACGTTAGTGTAGCCGT", "CTCGAAATGA")
+#' x <- dna(a ="ACGTTAGTGTAGCCGT", b = "CTCGAAATGA")
 #' seq_split_kmer(x, k = 5)
 seq_split_kmer <- function(x, k) {
   check_dna_rna_aa(x)
@@ -455,8 +457,9 @@ seq_split_kmer <- function(x, k) {
     km_start <- seq(1, x_len - k + 1)
     km_stop <- km_start + k - 1
     out <- mapply(stringr::str_sub, x, km_start, km_stop, USE.NAMES = FALSE)
-    coerce_seq_as_input(out, input = x)
+    coerce_seq_as_input(out, input = x, keep_names = FALSE)
   })
+  names(res) <- names(x)
   return(res)
 }
 
