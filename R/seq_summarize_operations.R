@@ -72,7 +72,6 @@ seq_cluster <- function(x, threshold = 0.05, method = "complete") {
 }
 
 
-#as_DNAbin(x) %>% ape::dist.dna(model = "raw")
 
 
 #' Find a consensus sequence for a set of sequences.
