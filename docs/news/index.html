@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bioseq</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -129,6 +129,32 @@
       <small>Source: <a href='https://github.com/fkeck/bioseq/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="bioseq-011" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.1">
+<a href="#bioseq-011" class="anchor"></a>bioseq 0.1.1</h1>
+<div id="new-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features" class="anchor"></a>New features</h2>
+<ul>
+<li><p>New system to disable colors in the console when printing sequences using global options: <code><a href="https://rdrr.io/r/base/options.html">options(bioseq.color = "none")</a></code>.</p></li>
+<li><p>New system to set GUI paths for <code><a href="../reference/seaview.html">seaview()</a></code> and <code><a href="../reference/aliview.html">aliview()</a></code> using global options (<code>bioseq.seaview.exec</code> and <code>bioseq.aliview.exec</code>).</p></li>
+</ul>
+</div>
+<div id="bug-fixes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bug-fixes" class="anchor"></a>Bug fixes</h2>
+<ul>
+<li>Fix bug with names when named biological sequences are provided to functions that return a list (<code>seq_extract_pattern</code>, <code>seq_split_pattern</code>, <code>seq_split_kmer</code>).</li>
+</ul>
+</div>
+<div id="documentation-improvements" class="section level2">
+<h2 class="hasAnchor">
+<a href="#documentation-improvements" class="anchor"></a>Documentation improvements</h2>
+<ul>
+<li>Documentation of <code><a href="../reference/seaview.html">seaview()</a></code> and <code><a href="../reference/aliview.html">aliview()</a></code> was improved to explain the exec arguments.</li>
+</ul>
+</div>
+</div>
     <div id="bioseq-010" class="section level1">
 <h1 class="page-header" data-toc-text="0.1.0">
 <a href="#bioseq-010" class="anchor"></a>bioseq 0.1.0</h1>

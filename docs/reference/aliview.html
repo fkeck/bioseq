@@ -73,7 +73,7 @@ The software must be installed on the computer." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bioseq</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -137,7 +137,7 @@ The software must be installed on the computer." />
 The software must be installed on the computer.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>aliview</span>(<span class='no'>x</span>, <span class='kw'>aliview_exec</span> <span class='kw'>=</span> <span class='st'>"aliview"</span>)</pre>
+    <pre class="usage"><span class='fu'>aliview</span>(<span class='no'>x</span>, <span class='kw'>aliview_exec</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span>(<span class='st'>"bioseq.aliview.exec"</span>))</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -153,6 +153,14 @@ Alternatively a <code>DNAbin</code> or <code>AAbin</code> object.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>By default, the function assumes that the executable is installed
+in a directory located on the PATH. Alternatively the user can provide
+an absolute path to the executable (i.e. the location where the software
+was installed/uncompressed). This information can be stored in the global
+options settings using
+<code><a href='https://rdrr.io/r/base/options.html'>options(bioseq.aliview.exec = "my_path_to_aliview")</a></code>.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Larsson, A. (2014). AliView: a fast and lightweight alignment
