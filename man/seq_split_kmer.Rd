@@ -19,7 +19,7 @@ Split sequences into k-mers
 }
 \examples{
 
-x <- dna("ACGTTAGTGTAGCCGT", "CTCGAAATGA")
+x <- dna(a ="ACGTTAGTGTAGCCGT", b = "CTCGAAATGA")
 seq_split_kmer(x, k = 5)
 }
 \seealso{

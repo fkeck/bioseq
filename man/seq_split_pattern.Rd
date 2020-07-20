@@ -50,7 +50,7 @@ and so on following the recycling rule.
 
 \examples{
 
-x <- dna("ACGTTAGTGTAGCCGT", "CTCGAAATGA")
+x <- dna(a = "ACGTTAGTGTAGCCGT", b = "CTCGAAATGA")
 seq_split_pattern(x, dna("AAA"))
 seq_split_pattern(x, "T.G")
 

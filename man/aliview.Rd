@@ -19,7 +19,8 @@ The software must be installed on the computer.
 \details{
 By default, the function assumes that the executable is installed
 in a directory located on the PATH. Alternatively the user can provide
-an absolute path to the executable which can be stored in the global
+an absolute path to the executable (i.e. the location where the software
+was installed/uncompressed). This information can be stored in the global
 options settings using
 \code{options(bioseq.aliview.exec = "my_path_to_aliview")}.
 }
