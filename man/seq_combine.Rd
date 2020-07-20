@@ -23,7 +23,7 @@ A vector with a single sequence, otherwise.
 Combine multiple sequences
 }
 \details{
-The strings \code{sep} and \code{collapse}w ill be coercced to
+The strings \code{sep} and \code{collapse}w ill be coerced to
 the type of input vectors with a warning if some character have to replaced.
 }
 \examples{

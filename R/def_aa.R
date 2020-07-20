@@ -85,7 +85,7 @@ print.bioseq_aa <- function(x, n_bases = 60, n_seq = 12,
                   seq_type = "AA", color = color)
 }
 
-#' Internal formating
+#' Internal formatting
 #'
 #' @param x a object.
 #' @param ... other params.

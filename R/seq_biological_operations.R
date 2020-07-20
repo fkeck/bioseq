@@ -36,7 +36,7 @@ seq_rev_transcribe <- function(x) {
 #' @param codon_frame an integer giving the nucleotide position
 #' where to start translation.
 #' @param codon_init a logical indicating whether the first codon is evaluated
-#' as a possible codon start and tranlated to methionine.
+#' as a possible codon start and translated to methionine.
 #'
 #' @details
 #'

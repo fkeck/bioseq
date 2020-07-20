@@ -84,7 +84,7 @@ print.bioseq_dna <- function(x, n_bases = 60, n_seq = 12,
                   seq_type = "DNA", color = color)
 }
 
-#' Internal formating
+#' Internal formatting
 #'
 #' @param x an object.
 #' @param ... other params.

@@ -2,7 +2,7 @@
 % Please edit documentation in R/def_aa.R
 \name{pillar_shaft.bioseq_aa}
 \alias{pillar_shaft.bioseq_aa}
-\title{Internal formating}
+\title{Internal formatting}
 \usage{
 pillar_shaft.bioseq_aa(x, ...)
 }
@@ -12,6 +12,6 @@ pillar_shaft.bioseq_aa(x, ...)
 \item{...}{other params.}
 }
 \description{
-Internal formating
+Internal formatting
 }
 \keyword{internal}

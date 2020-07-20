@@ -386,7 +386,7 @@ seq_extract_position <- function(x, position_in, position_out){
 #' string as separator.
 #'
 #' @details
-#' The strings \code{sep} and \code{collapse}w ill be coercced to
+#' The strings \code{sep} and \code{collapse}w ill be coerced to
 #' the type of input vectors with a warning if some character have to replaced.
 #'
 #' @return A vector of sequences (if collapse is \code{NULL}).

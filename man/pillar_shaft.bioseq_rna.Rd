@@ -2,7 +2,7 @@
 % Please edit documentation in R/def_rna.R
 \name{pillar_shaft.bioseq_rna}
 \alias{pillar_shaft.bioseq_rna}
-\title{Internal formating}
+\title{Internal formatting}
 \usage{
 pillar_shaft.bioseq_rna(x, ...)
 }
@@ -12,6 +12,6 @@ pillar_shaft.bioseq_rna(x, ...)
 \item{...}{other params.}
 }
 \description{
-Internal formating
+Internal formatting
 }
 \keyword{internal}

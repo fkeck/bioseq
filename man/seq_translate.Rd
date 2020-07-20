@@ -16,7 +16,7 @@ seq_translate(x, code = 1, codon_frame = 1, codon_init = FALSE)
 where to start translation.}
 
 \item{codon_init}{a logical indicating whether the first codon is evaluated
-as a possible codon start and tranlated to methionine.}
+as a possible codon start and translated to methionine.}
 }
 \value{
 An amino acid vector (\code{bioseq_aa}).

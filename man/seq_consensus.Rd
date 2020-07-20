@@ -26,7 +26,7 @@ Find a consensus sequence for a set of sequences.
 \details{
 "chr_majority", "chr_ambiguity", "seq_centrality", "seq_majority"
 
-For chr_ambiguity gap character always overide other characters.
+For chr_ambiguity gap character always override other characters.
 Use gaps = FALSE to ignore gaps.
 }
 \examples{
@@ -41,6 +41,6 @@ x <- dna(x)
 seq_consensus(x)
 }
 \seealso{
-Other agreggation operations: \code{\link{seq_cluster}}
+Other aggregation operations: \code{\link{seq_cluster}}
 }
-\concept{agreggation operations}
+\concept{aggregation operations}

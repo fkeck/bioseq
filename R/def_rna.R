@@ -85,7 +85,7 @@ print.bioseq_rna <- function(x, n_bases = 60, n_seq = 12,
 }
 
 
-#' Internal formating
+#' Internal formatting
 #'
 #' @param x a object.
 #' @param ... other params.
