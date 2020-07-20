@@ -11,3 +11,4 @@ git_ignore
 ^docs$
 ^pkgdown$
 ^codecov\.yml$
+cran-comments.md
