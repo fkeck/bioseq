@@ -12,3 +12,4 @@ git_ignore
 ^pkgdown$
 ^codecov\.yml$
 cran-comments.md
+^CRAN-RELEASE$
