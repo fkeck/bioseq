@@ -1,5 +1,6 @@
 
 # bioseq: A Toolbox for Manipulating Biological Sequences in R
+<img src="man/figures/logo.png" align="right" width="150"/>
 
 <!-- badges: start -->
 [![R build status](https://github.com/fkeck/bioseq/workflows/R-CMD-check/badge.svg)](https://github.com/fkeck/bioseq/actions)
