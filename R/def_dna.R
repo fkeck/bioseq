@@ -79,7 +79,8 @@ is_dna <- function(x) {
 
 #' @export
 print.bioseq_dna <- function(x, n_bases = 60, n_seq = 12,
-                             color = options("bioseq.color"), ...){
+                             color = getOption("bioseq.color",
+                                               default = "default"), ...){
   print_sequences(x, n_bases = n_bases, n_seq = n_seq,
                   seq_type = "DNA", color = color)
 }

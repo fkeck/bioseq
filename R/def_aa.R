@@ -80,7 +80,8 @@ is_aa <- function(x) {
 #' @export
 #'
 print.bioseq_aa <- function(x, n_bases = 60, n_seq = 12,
-                            color = options("bioseq.color"), ...){
+                            color = getOption("bioseq.color",
+                                              default = "default"), ...){
   print_sequences(x, n_bases = n_bases, n_seq = n_seq,
                   seq_type = "AA", color = color)
 }
