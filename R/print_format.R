@@ -45,7 +45,8 @@ bioseq_color <- function(seq_type) {
 
 print_sequences <- function(x, n_bases = 60, n_seq = 12,
                             seq_type = "DNA",
-                            color = options("bioseq.color")){
+                            color = getOption("bioseq.color",
+                                              default = "default")){
 
   # FIX PRINT WITH NA VALUES
   if(length(x) > n_seq){
