@@ -4,7 +4,10 @@
 \alias{aliview}
 \title{AliView: DNA sequences viewer}
 \usage{
-aliview(x, aliview_exec = options("bioseq.aliview.exec"))
+aliview(
+  x,
+  aliview_exec = getOption("bioseq.aliview.exec", default = "aliview")
+)
 }
 \arguments{
 \item{x}{a DNA, RNA or AA vector.
@@ -26,9 +29,10 @@ options settings using
 }
 \references{
 Larsson, A. (2014). AliView: a fast and lightweight alignment
-viewer and editor for large data sets. Bioinformatics30(22): 3276-3278.
+viewer and editor for large data sets. Bioinformatics 30(22): 3276-3278.
 }
 \seealso{
-Other GUI wrappers: \code{\link{seaview}}
+Other GUI wrappers: 
+\code{\link{seaview}()}
 }
 \concept{GUI wrappers}

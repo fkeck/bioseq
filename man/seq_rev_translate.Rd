@@ -36,7 +36,9 @@ all.equal(x, z)
 
 }
 \seealso{
-Other biological operations: \code{\link{rev_complement}},
-  \code{\link{seq_translate}}, \code{\link{transcription}}
+Other biological operations: 
+\code{\link{rev_complement}},
+\code{\link{seq_translate}()},
+\code{\link{transcription}}
 }
 \concept{biological operations}

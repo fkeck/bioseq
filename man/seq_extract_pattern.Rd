@@ -60,17 +60,18 @@ seq_extract_pattern(x, "T.G")
 \code{\link[stringr]{str_extract}} from \pkg{stringr}
 for the underlying implementation.
 
-Other string operations: \code{\link{seq-replace}},
-  \code{\link{seq_combine}},
-  \code{\link{seq_count_pattern}},
-  \code{\link{seq_crop_pattern}},
-  \code{\link{seq_crop_position}},
-  \code{\link{seq_detect_pattern}},
-  \code{\link{seq_extract_position}},
-  \code{\link{seq_remove_pattern}},
-  \code{\link{seq_remove_position}},
-  \code{\link{seq_replace_position}},
-  \code{\link{seq_split_kmer}},
-  \code{\link{seq_split_pattern}}
+Other string operations: 
+\code{\link{seq-replace}},
+\code{\link{seq_combine}()},
+\code{\link{seq_count_pattern}()},
+\code{\link{seq_crop_pattern}()},
+\code{\link{seq_crop_position}()},
+\code{\link{seq_detect_pattern}()},
+\code{\link{seq_extract_position}()},
+\code{\link{seq_remove_pattern}()},
+\code{\link{seq_remove_position}()},
+\code{\link{seq_replace_position}()},
+\code{\link{seq_split_kmer}()},
+\code{\link{seq_split_pattern}()}
 }
 \concept{string operations}

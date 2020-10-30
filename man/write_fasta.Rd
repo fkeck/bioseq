@@ -18,6 +18,7 @@ If \code{FALSE} (default), overwrite the file.}
 Write sequences in FASTA format
 }
 \seealso{
-Other input/output operations: \code{\link{read_fasta}}
+Other input/output operations: 
+\code{\link{read_fasta}()}
 }
 \concept{input/output operations}
