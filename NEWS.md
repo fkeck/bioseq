@@ -1,3 +1,9 @@
+# devel
+
+## Documentation improvements
+
+* New logo
+
 # bioseq 0.1.1
 
 ## New features

@@ -26,11 +26,9 @@
 #' @family GUI wrappers
 #' @export
 #'
-seaview <- function(x, seaview_exec = options("bioseq.seaview.exec")){
+seaview <- function(x, seaview_exec = getOption("bioseq.seaview.exec",
+                                                default = "seawiew")){
   tmp <- tempfile()
-  if(is.null(seaview_exec)){
-    seaview_exec <- "seaview"
-  }
   if(!any(class(x) %in% c("phylo", "DNAbin", "AAbin",
                           "bioseq_dna", "bioseq_rna",
                           "bioseq_aa"))) {
@@ -71,16 +69,14 @@ seaview <- function(x, seaview_exec = options("bioseq.seaview.exec")){
 #' \code{options(bioseq.aliview.exec = "my_path_to_aliview")}.
 #'
 #' @references Larsson, A. (2014). AliView: a fast and lightweight alignment
-#' viewer and editor for large data sets. Bioinformatics30(22): 3276-3278.
+#' viewer and editor for large data sets. Bioinformatics 30(22): 3276-3278.
 #'
 #' @family GUI wrappers
 #' @export
 #'
-aliview <- function(x, aliview_exec = options("bioseq.aliview.exec")){
+aliview <- function(x, aliview_exec = getOption("bioseq.aliview.exec",
+                                                default = "aliview")){
   tmp <- tempfile()
-  if(is.null(aliview_exec)){
-    aliview_exec <- "aliview"
-  }
   if(!any(class(x) %in% c("DNAbin", "AAbin",
                           "bioseq_dna", "bioseq_rna",
                           "bioseq_aa"))) {
