@@ -1,8 +1,17 @@
 # devel
 
+## Minor changes
+
+* Use getOption() instead of options() in function arguments (Functions aliview, seaview, print_sequences, print.bioseq_dna, print.bioseq_rna and print.bioseq_aa).
+
+## Bug fixes
+
+* Fix bug when exporting fasta (write_fasta) with NA sequences.
+
 ## Documentation improvements
 
 * New logo
+
 
 # bioseq 0.1.1
 
