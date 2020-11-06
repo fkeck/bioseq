@@ -35,6 +35,18 @@ read_fasta <- function(file, type = "DNA") {
 #' @export
 #'
 write_fasta <- function(x, file, append = FALSE) {
+
+  x_nchar <- stringr::str_length(x)
+  x_is_na <- is.na(x)
+  if(any(x_is_na | x_nchar == 0L)) {
+    input_len <- length(x)
+    x <- x[!is.na(x)]
+    output_len <- length(x)
+    warning("Found ", input_len - output_len,
+            " NA and/or empty sequences. They were not exported since ",
+            "the FASTA format does not support missing values.")
+  }
+
   x <- as.character(x)
   x <- vapply(x, function(x) {
     x_len <- stringr::str_length(x)
