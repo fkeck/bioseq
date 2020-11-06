@@ -70,3 +70,13 @@ test_that("Read/write fasta works with RNA", {
   test_reread <- read_fasta(test_file, type = "RNA")
   expect_equal(test, test_reread)
 })
+
+
+test_that("Write fasta raises warning with NA ", {
+  test <- read_fasta("example_fasta_multi.fasta")
+  test[2] <- NA
+  test_file <- tempfile(fileext = ".fasta")
+  expect_warning(write_fasta(test, file = test_file))
+  test_reread <- read_fasta(test_file)
+  expect_length(test_reread, 2)
+})
