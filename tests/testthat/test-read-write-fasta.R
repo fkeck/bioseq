@@ -29,6 +29,18 @@ test_that("Read/write fasta works with multiple sequences", {
 })
 
 
+test_that("Read/write fasta works with > character in sequence names", {
+  test <- read_fasta("example_fasta_multi_chevron.fasta")
+  expect_s3_class(test, "bioseq_dna")
+  expect_length(test, 3L)
+  expect_equal(as.numeric(nchar(test)), c(1231L, 1020L, 44L))
+  test_file <- tempfile(fileext = ".fasta")
+  write_fasta(test, file = test_file)
+  test_reread <- read_fasta(test_file)
+  expect_equal(test, test_reread)
+})
+
+
 test_that("Read/write fasta works with header", {
   test <- read_fasta("example_fasta_header.fasta")
   expect_s3_class(test, "bioseq_dna")
@@ -80,3 +92,6 @@ test_that("Write fasta raises warning with NA ", {
   test_reread <- read_fasta(test_file)
   expect_length(test_reread, 2)
 })
+
+
+
