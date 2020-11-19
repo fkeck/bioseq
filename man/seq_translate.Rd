@@ -43,8 +43,9 @@ seq_translate(x)
 
 }
 \seealso{
-Other biological operations: \code{\link{rev_complement}},
-  \code{\link{seq_rev_translate}},
-  \code{\link{transcription}}
+Other biological operations: 
+\code{\link{rev_complement}},
+\code{\link{seq_rev_translate}()},
+\code{\link{transcription}}
 }
 \concept{biological operations}

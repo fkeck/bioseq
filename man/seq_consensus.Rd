@@ -4,8 +4,7 @@
 \alias{seq_consensus}
 \title{Find a consensus sequence for a set of sequences.}
 \usage{
-seq_consensus(x, method = "chr_majority", weights = NULL,
-  gaps = TRUE)
+seq_consensus(x, method = "chr_majority", weights = NULL, gaps = TRUE)
 }
 \arguments{
 \item{x}{a DNA, RNA or AA vector.}
@@ -41,6 +40,7 @@ x <- dna(x)
 seq_consensus(x)
 }
 \seealso{
-Other aggregation operations: \code{\link{seq_cluster}}
+Other aggregation operations: 
+\code{\link{seq_cluster}()}
 }
 \concept{aggregation operations}

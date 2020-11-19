@@ -26,6 +26,8 @@ dna(x)
 
 }
 \seealso{
-Other classes: \code{\link{aa}}, \code{\link{rna}}
+Other classes: 
+\code{\link{aa}()},
+\code{\link{rna}()}
 }
 \concept{classes}

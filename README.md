@@ -25,3 +25,7 @@ There are two vignettes available to get started with the package:
 - Introduction to the `bioseq` package
 - Cleaning and exploring NCBI data with the `bioseq` package
 
+
+## Citation
+
+If you use bioseq please cite Keck F. (2020) Handling biological sequences in R with the bioseq package. Methods in Ecology and Evolution. [doi:10.1111/2041-210X.13490](https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13490)

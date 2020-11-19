@@ -4,7 +4,9 @@
 \name{fragilaria}
 \alias{fragilaria}
 \title{DNA sequences (rbcL) for various Fragilaria}
-\format{A long character vector (unparsed FASTA).}
+\format{
+A long character vector (unparsed FASTA).
+}
 \source{
 GenBank \url{https://www.ncbi.nlm.nih.gov/genbank/} using
 the following search term: "(rbcl) AND Fragilaria"
