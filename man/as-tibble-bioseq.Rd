@@ -40,13 +40,9 @@ as_tibble(x)
 
 }
 \seealso{
-Other conversions: 
-\code{\link{as-tibble-ape}},
-\code{\link{as_AAbin}()},
-\code{\link{as_DNAbin}()},
-\code{\link{as_aa}()},
-\code{\link{as_dna}()},
-\code{\link{as_rna}()},
-\code{\link{as_seqinr_alignment}()}
+Other conversions: \code{\link{as-tibble-ape}},
+  \code{\link{as_AAbin}}, \code{\link{as_DNAbin}},
+  \code{\link{as_aa}}, \code{\link{as_dna}},
+  \code{\link{as_rna}}, \code{\link{as_seqinr_alignment}}
 }
 \concept{conversions}

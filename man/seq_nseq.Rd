@@ -16,11 +16,8 @@ an integer.
 This is an alias for \code{length}.
 }
 \seealso{
-Other op-misc: 
-\code{\link{seq_disambiguate_IUPAC}()},
-\code{\link{seq_nchar}()},
-\code{\link{seq_spellout}()},
-\code{\link{seq_stat_gc}()},
-\code{\link{seq_stat_prop}()}
+Other op-misc: \code{\link{seq_disambiguate_IUPAC}},
+  \code{\link{seq_nchar}}, \code{\link{seq_spellout}},
+  \code{\link{seq_stat_gc}}, \code{\link{seq_stat_prop}}
 }
 \concept{op-misc}

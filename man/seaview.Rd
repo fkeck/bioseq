@@ -4,10 +4,8 @@
 \alias{seaview}
 \title{SeaView: DNA sequences and phylogenetic tree viewer}
 \usage{
-seaview(
-  x,
-  seaview_exec = getOption("bioseq.seaview.exec", default = "seawiew")
-)
+seaview(x, seaview_exec = getOption("bioseq.seaview.exec", default =
+  "seawiew"))
 }
 \arguments{
 \item{x}{a DNA, RNA or AA vector.
@@ -36,7 +34,6 @@ alignment and phylogenetic tree building.
 Molecular Biology and Evolution 27(2):221-224.
 }
 \seealso{
-Other GUI wrappers: 
-\code{\link{aliview}()}
+Other GUI wrappers: \code{\link{aliview}}
 }
 \concept{GUI wrappers}

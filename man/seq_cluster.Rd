@@ -53,7 +53,6 @@ seq_cluster(x)
 Function \code{\link{seq_consensus}} to compute consensus
 and representative sequences for clusters.
 
-Other aggregation operations: 
-\code{\link{seq_consensus}()}
+Other aggregation operations: \code{\link{seq_consensus}}
 }
 \concept{aggregation operations}

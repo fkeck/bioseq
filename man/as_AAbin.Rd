@@ -18,13 +18,9 @@ An AAbin object.
 Coerce to AAbin
 }
 \seealso{
-Other conversions: 
-\code{\link{as-tibble-ape}},
-\code{\link{as-tibble-bioseq}},
-\code{\link{as_DNAbin}()},
-\code{\link{as_aa}()},
-\code{\link{as_dna}()},
-\code{\link{as_rna}()},
-\code{\link{as_seqinr_alignment}()}
+Other conversions: \code{\link{as-tibble-ape}},
+  \code{\link{as-tibble-bioseq}}, \code{\link{as_DNAbin}},
+  \code{\link{as_aa}}, \code{\link{as_dna}},
+  \code{\link{as_rna}}, \code{\link{as_seqinr_alignment}}
 }
 \concept{conversions}
