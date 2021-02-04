@@ -35,6 +35,15 @@ test_that("Spellout works with AA", {
 })
 
 
+test_that("Spellout returns list of character vectors with collapse = NULL", {
+  test <- dna(A = "ACGT", B = "RWSAG", C = NA)
+  expect_equal(seq_spellout(test, collapse = NULL),
+               list(c("adenine", "cytosine", "guanine", "thymine"),
+                    c("purine", "weak", "strong", "adenine", "guanine"),
+                    NA)
+})
+
+
 test_that("seq_disambiguate_IUPAC with RNA", {
   test <- rna(A = "ACGU", B = "RWSAG", C = NA)
   test_disamb <- seq_disambiguate_IUPAC(test)
