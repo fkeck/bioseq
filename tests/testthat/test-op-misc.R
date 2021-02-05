@@ -40,7 +40,7 @@ test_that("Spellout returns list of character vectors with collapse = NULL", {
   expect_equal(seq_spellout(test, collapse = NULL),
                list(c("adenine", "cytosine", "guanine", "thymine"),
                     c("purine", "weak", "strong", "adenine", "guanine"),
-                    NA)
+                    NA_character_)
   )
 })
 
