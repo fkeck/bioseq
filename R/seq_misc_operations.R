@@ -90,8 +90,9 @@ seq_spellout <- function(x, short = FALSE, collapse = " - "){
 
   if(is.character(collapse)){
     vapply(out, stringr::str_c, vector("character", 1), collapse = collapse)
+  } else {
+    lapply(out, `names<-`, NULL)
   }
-
 }
 
 
