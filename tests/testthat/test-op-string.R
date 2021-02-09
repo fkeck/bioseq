@@ -8,6 +8,21 @@ test_that("Pattern detection works", {
 })
 
 
+test_that("Fuzzy pattern detection works", {
+  x <- dna(c("ACGTTAGTGTAGCCGT", "CTCGAAATGA", NA))
+  expect_equal(seq_detect_pattern(x, dna("TTA"), max_error = 0.3),
+               c(TRUE, FALSE, NA))
+  expect_equal(seq_detect_pattern(x, dna("TTA"), max_error = 0.4),
+               c(TRUE, TRUE, NA))
+  expect_equal(seq_detect_pattern(x, dna("ACGA", "CTA", "GGG"),
+                                  max_error = 0.3),
+               c(TRUE, FALSE, NA))
+  expect_equal(seq_detect_pattern(x, dna("ACGA", "CTA", "GGG"),
+                                  max_error = c(0.3, 0.4)),
+               c(TRUE, TRUE, NA))
+
+})
+
 test_that("Crop patterns works", {
   x <- dna("ACGTTAAAAAGTGTAGCCCCCGT", "CTCGAAATGA", NA)
   expect_equal(seq_crop_pattern(x, pattern_in = "AAAA", pattern_out = "CCCC"),
