@@ -7,6 +7,9 @@
 #' @param pattern a DNA, RNA or AA vectors (but same as \code{x})
 #' or a character vector of regular expressions, or a list.
 #' See section Patterns.
+#' @param max_error numeric value ranging from 0 to 1 and giving the
+#' maximum error rate allowed between the target sequence and the pattern.
+#' Error rate is relative to the length of the pattern.
 #'
 #'
 #' @section Patterns:
@@ -36,9 +39,14 @@
 #' GG in the second sequence, AAA or CCC in the third,
 #' and so on following the recycling rule.
 #'
+#'  @section Fuzzy matching:
+#' When \code{max_error} is greater than zero, the function perform
+#' fuzzy matching. Fuzzy matching does not support regular expression.
+#'
 #' @seealso
-#' \code{\link[stringi]{stri_detect}} from \pkg{stringi} and
-#' \code{\link[stringr]{str_detect}} from \pkg{stringr}
+#' \code{\link[stringi]{stri_detect}} from \pkg{stringi},
+#' \code{\link[stringr]{str_detect}} from \pkg{stringr} and
+#' \code{\link[stringdist]{afind}} from \pkg{stringdist}
 #' for the underlying implementation.
 #'
 #' @return A logical vector.
@@ -49,10 +57,28 @@
 #'
 #' x <- dna(c("ACGTTAGTGTAGCCGT", "CTCGAAATGA"))
 #' seq_detect_pattern(x, dna(c("CCG", "AAA")))
+#'
+#' # Regular expression
 #' seq_detect_pattern(x, "^A.{2}T")
 #'
-seq_detect_pattern <- function(x, pattern) {
+#' # Fuzzy matching
+#' seq_detect_pattern(x, dna("AGG"), max_error = 0.2)
+#' # No match. The pattern has three character, the max_error
+#' # has to be > 1/3 to allow one character difference.
+#'
+#' seq_detect_pattern(x, dna("AGG"), max_error = 0.4)
+#' # Match
+#'
+seq_detect_pattern <- function(x, pattern, max_error = 0) {
   check_dna_rna_aa(x)
+
+  if(any(max_error > 0)) {
+    res <- seq_detect_fuzzypattern(x = x,
+                                   pattern = pattern,
+                                   max_dist = max_error)
+    return(res)
+  }
+
   pattern <- check_and_prepare_pattern(x, pattern)
   res <- stringr::str_detect(string = x, pattern = pattern)
   return(res)
