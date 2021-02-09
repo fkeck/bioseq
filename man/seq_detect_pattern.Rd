@@ -4,7 +4,7 @@
 \alias{seq_detect_pattern}
 \title{Detect the presence of patterns in sequences}
 \usage{
-seq_detect_pattern(x, pattern)
+seq_detect_pattern(x, pattern, max_error = 0)
 }
 \arguments{
 \item{x}{a DNA, RNA or AA vector.}
@@ -12,6 +12,10 @@ seq_detect_pattern(x, pattern)
 \item{pattern}{a DNA, RNA or AA vectors (but same as \code{x})
 or a character vector of regular expressions, or a list.
 See section Patterns.}
+
+\item{max_error}{numeric value ranging from 0 to 1 and giving the
+maximum error rate allowed between the target sequence and the pattern.
+Error rate is relative to the length of the pattern.}
 }
 \value{
 A logical vector.
@@ -46,18 +50,33 @@ For example pattern list(c("AAA", "CCC"), "GG")
 will match AAA or CCC in the first sequence,
 GG in the second sequence, AAA or CCC in the third,
 and so on following the recycling rule.
+
+ @section Fuzzy matching:
+When \code{max_error} is greater than zero, the function perform
+fuzzy matching. Fuzzy matching does not support regular expression.
 }
 
 \examples{
 
 x <- dna(c("ACGTTAGTGTAGCCGT", "CTCGAAATGA"))
 seq_detect_pattern(x, dna(c("CCG", "AAA")))
+
+# Regular expression
 seq_detect_pattern(x, "^A.{2}T")
+
+# Fuzzy matching
+seq_detect_pattern(x, dna("AGG"), max_error = 0.2)
+# No match. The pattern has three character, the max_error
+# has to be > 1/3 to allow one character difference.
+
+seq_detect_pattern(x, dna("AGG"), max_error = 0.4)
+# Match
 
 }
 \seealso{
-\code{\link[stringi]{stri_detect}} from \pkg{stringi} and
-\code{\link[stringr]{str_detect}} from \pkg{stringr}
+\code{\link[stringi]{stri_detect}} from \pkg{stringi},
+\code{\link[stringr]{str_detect}} from \pkg{stringr} and
+\code{\link[stringdist]{afind}} from \pkg{stringdist}
 for the underlying implementation.
 
 Other string operations: 

@@ -49,6 +49,10 @@ For example pattern list(c("AAA", "CCC"), "GG")
 will match AAA or CCC in the first sequence,
 GG in the second sequence, AAA or CCC in the third,
 and so on following the recycling rule.
+
+ @section Fuzzy matching:
+When \code{max_error} is greater than zero, the function perform
+fuzzy matching. Fuzzy matching does not support regular expression.
 }
 
 \examples{
