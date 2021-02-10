@@ -4,7 +4,14 @@
 \alias{seq_crop_pattern}
 \title{Crop sequences using delimiting patterns}
 \usage{
-seq_crop_pattern(x, pattern_in, pattern_out)
+seq_crop_pattern(
+  x,
+  pattern_in,
+  pattern_out,
+  max_error_in = 0,
+  max_error_out = 0,
+  include_patterns = TRUE
+)
 }
 \arguments{
 \item{x}{a DNA, RNA or AA vector to be cropped.}
@@ -12,13 +19,29 @@ seq_crop_pattern(x, pattern_in, pattern_out)
 \item{pattern_in}{patterns defining the beginning (left-side).}
 
 \item{pattern_out}{patterns defining the end (right-side).}
+
+\item{max_error_in, max_error_out}{numeric values ranging from
+0 to 1 and giving the maximum error rate allowed between the
+target sequence and \code{pattern_in}/\code{pattern_out}.
+Error rate is relative to the length of the pattern.}
+
+\item{include_patterns}{logical. Should the matched pattern
+sequence included in the returned sequences?}
 }
 \value{
 A cropped DNA, RNA or AA vector.
+Sequences where patterns are not detected returns \code{NA}.
 }
 \description{
 Crop sequences using delimiting patterns
 }
+\section{Fuzzy matching}{
+
+When \code{max_error_in} or \code{max_error_out} are greater
+than zero, the function perform fuzzy matching.
+Fuzzy matching does not support regular expression.
+}
+
 \section{Patterns}{
 
 It is important to understand how patterns are treated in \pkg{bioseq}.
@@ -58,8 +81,9 @@ x <- dna("ACGTTAAAAAGTGTAGCCCCCGT", "CTCGAAATGA")
 seq_crop_pattern(x, pattern_in = "AAAA", pattern_out = "CCCC")
 }
 \seealso{
-\code{\link[stringi]{stri_extract}} from \pkg{stringi} and
-\code{\link[stringr]{str_extract}} from \pkg{stringr}
+\code{\link[stringi]{stri_extract}} from \pkg{stringi},
+\code{\link[stringr]{str_extract}} from \pkg{stringr} and
+\code{\link[stringdist]{afind}} from \pkg{stringdist}
 for the underlying implementation.
 
 Other string operations: 
