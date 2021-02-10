@@ -30,6 +30,7 @@ Imports:
     crayon,
     dplyr,
     pillar,
+    stringi,
     stringr,
     stringdist,
     readr,
