@@ -25,9 +25,31 @@ test_that("Fuzzy pattern detection works", {
 
 test_that("Crop patterns works", {
   x <- dna("ACGTTAAAAAGTGTAGCCCCCGT", "CTCGAAATGA", NA)
-  expect_equal(seq_crop_pattern(x, pattern_in = "AAAA", pattern_out = "CCCC"),
+  expect_equal(seq_crop_pattern(x, pattern_in = "AAAA", pattern_out = "CCCC",
+                                include_patterns = FALSE),
                dna("AGTGTAGC", NA, NA))
+
+  expect_equal(seq_crop_pattern(x, pattern_in = "AAAA", pattern_out = "CCCC",
+                                include_patterns = TRUE),
+               dna("AAAAAGTGTAGCCCCC", NA, NA))
 })
+
+
+test_that("Fuzzy crop patterns works", {
+  x <- dna("TCTCTAAAAAAAAAAAAAAATCTCT")
+  a <- dna(NA)
+  b <- dna("TAAAAAAAAAAAAAAAT")
+  c <- dna("AAAAAAA")
+  expect_equal(seq_crop_pattern(x, pattern_in = dna("TACAA"), pattern_out = dna("AAAAT"), max_error_in = 0.1), a)
+  expect_equal(seq_crop_pattern(x, pattern_in = dna("TACAA"), pattern_out = dna("AAAAT"), max_error_in = 0.2), b)
+  expect_equal(seq_crop_pattern(x, pattern_in = dna("TACAA"), pattern_out = dna("AAAAT"), max_error_in = 0.2, include_patterns = FALSE), c)
+  expect_equal(seq_crop_pattern(x, pattern_in = dna("TAAAA"), pattern_out = dna("AGAAT"), max_error_in = 0.2), a)
+  expect_equal(seq_crop_pattern(x, pattern_in = dna("TAAAA"), pattern_out = dna("AGAAT"), max_error_out = 0.2), b)
+  expect_equal(seq_crop_pattern(x, pattern_in = dna("TAAAA"), pattern_out = dna("AGAAT"), max_error_out = 0.2, include_patterns = FALSE), c)
+  expect_equal(seq_crop_pattern(x, pattern_in = dna("TAAAA"), pattern_out = dna("ANAAT"), max_error_out = 0.1), b)
+})
+
+
 
 test_that("Pattern extraction works", {
   x <- dna("ACGTTAGTGTAGCCGT", "CTCGAAATGA", NA)
