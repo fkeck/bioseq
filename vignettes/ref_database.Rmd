@@ -111,11 +111,11 @@ fra_data <- fra_data %>%
 fra_data
 ```
 
-As expected, the barcode sequences seem to be aligned. We can also see that this operation has produced several NAs which correspond to sequences where the primers were not detected, probably because the barcode region was not included in the sequence. We could simply exclude the NA values, but it is safer to filter only the sequences whose length match exactly the expected length of the barcode (i.e. 263 bp).
+As expected, the barcode sequences seem to be aligned. We can also see that this operation has produced several NAs which correspond to sequences where the primers were not detected, probably because the barcode region was not included in the sequence. We could simply exclude the NA values, but it is safer to filter only the sequences whose length match exactly the expected length of the barcode (i.e. 312 bp).
 
 ```{r}
 fra_data <- fra_data %>% 
-  filter(seq_nchar(barcode) == 263)
+  filter(seq_nchar(barcode) == 312)
 
 fra_data
 ```
