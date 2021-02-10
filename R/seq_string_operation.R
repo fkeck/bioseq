@@ -107,12 +107,19 @@ seq_detect_pattern <- function(x, pattern, max_error = 0) {
 #'
 #' x <- dna("ACGTTAAAAAGTGTAGCCCCCGT", "CTCGAAATGA")
 #' seq_crop_pattern(x, pattern_in = "AAAA", pattern_out = "CCCC")
-seq_crop_pattern <- function(x, pattern_in, pattern_out) {
+seq_crop_pattern <- function(x, pattern_in, pattern_out,
+                             max_error_in = 0, max_error_out = 0,
+                             include_patterns = TRUE) {
   check_dna_rna_aa(x)
   pattern_in <- check_and_prepare_pattern(x, pattern_in)
   pattern_out <- check_and_prepare_pattern(x, pattern_out)
 
-  rgx <- paste0("(?<=", pattern_in, ").*(?=", pattern_out, ")")
+  if(include_patterns) {
+    rgx <- paste0("(?=(?:", pattern_in, ")).*(?:", pattern_out, ")")
+  } else {
+    rgx <- paste0("(?<=", pattern_in, ").*(?=", pattern_out, ")")
+  }
+
   res <- stringr::str_extract(string = x, pattern = rgx)
   res <- coerce_seq_as_input(res, x)
   return(res)
