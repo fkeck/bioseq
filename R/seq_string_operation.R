@@ -91,14 +91,28 @@ seq_detect_pattern <- function(x, pattern, max_error = 0) {
 #' @param x a DNA, RNA or AA vector to be cropped.
 #' @param pattern_in patterns defining the beginning (left-side).
 #' @param pattern_out patterns defining the end (right-side).
+#' @param max_error_in,max_error_out numeric values ranging from
+#' 0 to 1 and giving the maximum error rate allowed between the
+#' target sequence and \code{pattern_in}/\code{pattern_out}.
+#' Error rate is relative to the length of the pattern.
+#' @param include_patterns logical. Should the matched pattern
+#' sequence included in the returned sequences?
 #'
 #' @inheritSection seq_detect_pattern Patterns
+#'
+#' @section Fuzzy matching:
+#' When \code{max_error_in} or \code{max_error_out} are greater
+#' than zero, the function perform fuzzy matching.
+#' Fuzzy matching does not support regular expression.
+#'
 #' @return  A cropped DNA, RNA or AA vector.
+#' Sequences where patterns are not detected returns \code{NA}.
 #'
 #' @family string operations
 #' @seealso
-#' \code{\link[stringi]{stri_extract}} from \pkg{stringi} and
-#' \code{\link[stringr]{str_extract}} from \pkg{stringr}
+#' \code{\link[stringi]{stri_extract}} from \pkg{stringi},
+#' \code{\link[stringr]{str_extract}} from \pkg{stringr} and
+#' \code{\link[stringdist]{afind}} from \pkg{stringdist}
 #' for the underlying implementation.
 #'
 #' @export
@@ -111,6 +125,18 @@ seq_crop_pattern <- function(x, pattern_in, pattern_out,
                              max_error_in = 0, max_error_out = 0,
                              include_patterns = TRUE) {
   check_dna_rna_aa(x)
+
+  if(any(max_error_in > 0) | any(max_error_out > 0)) {
+    res <- seq_crop_fuzzypattern(x = x,
+                                 pattern_in = pattern_in,
+                                 pattern_out = pattern_out,
+                                 max_dist_in = max_error_in,
+                                 max_dist_out = max_error_out,
+                                 include_patterns = include_patterns)
+    return(res)
+  }
+
+
   pattern_in <- check_and_prepare_pattern(x, pattern_in)
   pattern_out <- check_and_prepare_pattern(x, pattern_out)
 
