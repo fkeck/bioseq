@@ -18,7 +18,7 @@ seq_detect_fuzzypattern <- function(x, pattern, max_dist = 0.0) {
 
   mapply(function(x, pattern, max_dist) {
     max_dist <- floor(max_dist * stringr::str_length(pattern))
-    pat_dist <- stringdist::afind(x, pattern, value = FALSE)$distance
+    pat_dist <- stringdist::afind(x, pattern, value = FALSE, method = "hamming")$distance
     apply(pat_dist, 1, function(x) any(x <= max_dist))
     },
     x = x, pattern = pattern, max_dist = max_dist,
@@ -67,7 +67,6 @@ seq_crop_fuzzypattern <- function(x,
         pattern_find <- stringdist::afind(x, pattern_in, value = TRUE, method = "hamming")
         sel <- pattern_find$distance <= max_dist_in
         pattern_find$location <- pattern_find$location[sel]
-        #pattern_find$distance <- pattern_find$distance[sel]
         pattern_find$match <- pattern_find$match[sel]
         res <- ifelse(all(sel == FALSE),
                       NA,
@@ -107,7 +106,6 @@ seq_crop_fuzzypattern <- function(x,
                                           value = TRUE, method = "hamming")
         sel <- pattern_find$distance <= max_dist_out
         pattern_find$location <- stringr::str_length(x) - pattern_find$location[sel]
-        # pattern_find$distance <- pattern_find$distance[sel]
         pattern_find$match <- pattern_find$match[sel]
 
         res <- ifelse(all(sel == FALSE) ,
@@ -131,4 +129,19 @@ seq_crop_fuzzypattern <- function(x,
   out <- coerce_seq_as_input(out, x)
   return(out)
 }
+
+
+
+# Wrapper around stringdist::afind
+# Not exported
+seq_afind <- function(x, pattern) {
+  check_dna_rna_aa(x)
+  pattern <- check_and_prepare_pattern(x, pattern)
+  pattern <- unlist(stringr::str_split(pattern, pattern = "\\|"))
+  stringdist::afind(x, pattern, method = "hamming", value = TRUE)
+}
+
+
+
+
 
