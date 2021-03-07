@@ -1,3 +1,11 @@
+# bioseq devel
+
+## Minor changes
+
+* Add support for fuzzy matching in `seq_detect_pattern()` and `seq_crop_pattern()`.
+
+* Fixed missing output in `seq_spellout()` for `collapse = NULL`.
+
 # bioseq 0.1.2
 
 ## Minor changes
