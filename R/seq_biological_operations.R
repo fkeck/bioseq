@@ -27,7 +27,6 @@ seq_rev_transcribe <- function(x) {
 }
 
 
-
 #' Translate DNA/RNA sequences into amino acids
 #'
 #' @param x a vector of DNA (bioseq_dna) or RNA (bioseq_rna).
