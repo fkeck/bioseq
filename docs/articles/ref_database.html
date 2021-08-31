@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bioseq</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
       </span>
     </div>
 
@@ -46,7 +46,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -75,7 +75,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/fkeck/bioseq/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -89,7 +89,7 @@
 
       
 
-      </header><div class="row">
+      </header><script src="ref_database_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Cleaning and exploring NCBI data with the <code>bioseq</code> package</h1>
@@ -110,19 +110,22 @@
 <div id="loading-packages" class="section level2">
 <h2 class="hasAnchor">
 <a href="#loading-packages" class="anchor"></a>Loading packages</h2>
-<p>We start by loading the package <code>bioseq</code>. It is assumed that you already intalled the package either from CRAN using the function <code>install.packages("bioseq)</code> or from GitHub using <code><a href="https://rdrr.io/pkg/remotes/man/install_github.html">remotes::install_github("fkeck/bioseq")</a></code>.</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">bioseq</span>)</pre></body></html></div>
+<p>We start by loading the package <code>bioseq</code>. It is assumed that you already intalled the package either from CRAN using the function <code>install.packages("bioseq)</code> or from GitHub using <code><a href="https://remotes.r-lib.org/reference/install_github.html">remotes::install_github("fkeck/bioseq")</a></code>.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://fkeck.github.io/bioseq/">bioseq</a></span><span class="op">)</span></code></pre></div>
 <p>We additionaly load the <code>tidyverse</code> package. This is a meta-package which loads several useful packages that we will need for later. In particular we will use <code>tibble</code> and <code>dplyr</code> to work with tibbles. This allows to work with other types of data and to centralize everything in one place. To learn more about the tidyverse and these packages you can visit.</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">tidyverse</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
 </div>
 <div id="loading-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#loading-data" class="anchor"></a>Loading data</h2>
 <p>Genetic data are often delivered in FASTA format. In this example we will use rbcL sequences of Fragilaria species retrieved from NCBI and directly available as unparsed FASTA in the package. We can use the function <code>read_fasta</code> to directly read a FASTA file into R. Here we read a vector of character already available in R, but most of the time the argument <code>file</code> will be used to pass a path to a file available locally or via the network.</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">fragilaria</span>, <span class="kw">package</span> <span class="kw">=</span> <span class="st">"bioseq"</span>)
-<span class="no">fra_data</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/read_fasta.html">read_fasta</a></span>(<span class="no">fragilaria</span>)
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">fragilaria</span>, package <span class="op">=</span> <span class="st">"bioseq"</span><span class="op">)</span>
+<span class="va">fra_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_fasta.html">read_fasta</a></span><span class="op">(</span><span class="va">fragilaria</span><span class="op">)</span>
 
-<span class="no">fra_data</span>
+<span class="va">fra_data</span>
 <span class="co">#&gt; DNA vector of 41 sequences</span>
 <span class="co">#&gt; MK576039.1 Fragil...  TTCATCGCTTATGAATGTGATTTATTTGAAGAAGGTTCTTTAGCTAACTTAACAGCTTCT... + 575 bases</span>
 <span class="co">#&gt; MK672908.1 Fragil...  GCTTTCATCGCTTACGAATGTGATTTATTTGAAGAAGGTTCTTTAGCTAACTTAACAGCT... + 1107 bases</span>
@@ -136,21 +139,24 @@
 <span class="co">#&gt; JQ003574.1 Synedr...  AAAAANTATGGGCGTGTAGTATACGAAGGTTTAAAAGGTGGATTAGACTTCTTAAAAGAT... + 390 bases</span>
 <span class="co">#&gt; JQ003570.1 Fragil...  ATTCCACACTCATACTTAAAAACATTCCAAGGTCCAGCAACTGGTATCATCGTAGAACGT... + 516 bases</span>
 <span class="co">#&gt; JQ003569.1 Synedr...  AAAAACTACGGTCGTGTAGTATATGAAGGTTTAAAAGGTGGTTTAGACTTCTTAAAAGAT... + 390 bases</span>
-<span class="co">#&gt; ... with 29 more sequences.</span></pre></body></html></div>
+<span class="co">#&gt; ... with 29 more sequences.</span></code></pre></div>
 <p>According to the output, we have a DNA vector with 41 sequences. Those sequences were retrieved directly from NCBI. Therefore, they are not aligned and they have different lenght. It is easy to get the range of lengths with the following command:</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="../reference/seq_nchar.html">seq_nchar</a></span>(<span class="no">fra_data</span>) <span class="kw">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span>()
-<span class="co">#&gt; [1]  450 1510</span></pre></body></html></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/seq_nchar.html">seq_nchar</a></span><span class="op">(</span><span class="va">fra_data</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; [1]  450 1510</span></code></pre></div>
 <p>As explained in the introduction, we want to analyze the data in a dataframe as it present several advantages. The <code>bioseq</code> package has been designed to work smoothly with <code>tibbles</code>, an extension of the standard dataframe. Below, we use the <code>as_tibble</code> function to turn the DNA vector into a <code>tibble</code> with two columns (one for the names and one for the sequences). We will also clean the names and split them into two columns. Finally we create an extra column with the length (number of characters) of each sequence.</p>
-<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">fra_data</span> <span class="kw">&lt;-</span> <span class="fu">tibble</span>(<span class="kw">label</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">fra_data</span>), <span class="kw">sequence</span> <span class="kw">=</span> <span class="no">fra_data</span>)</pre></body></html></div>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">fra_data</span> <span class="kw">&lt;-</span> <span class="no">fra_data</span> <span class="kw">%&gt;%</span>
-  <span class="fu">mutate</span>(<span class="kw">genbank_id</span> <span class="kw">=</span> <span class="fu">str_extract</span>(<span class="no">label</span>, <span class="st">"([^\\s]+)"</span>),
-         <span class="kw">taxa</span> <span class="kw">=</span> <span class="fu">str_extract</span>(<span class="no">label</span>, <span class="st">"(?&lt;= ).*"</span>)) <span class="kw">%&gt;%</span>
-  <span class="fu">select</span>(<span class="no">genbank_id</span>, <span class="no">taxa</span>, <span class="no">sequence</span>)
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">fra_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">fra_data</span><span class="op">)</span>, sequence <span class="op">=</span> <span class="va">fra_data</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">fra_data</span> <span class="op">&lt;-</span> <span class="va">fra_data</span> <span class="op">%&gt;%</span> 
+  <span class="fu">mutate</span><span class="op">(</span>genbank_id <span class="op">=</span> <span class="fu">str_extract</span><span class="op">(</span><span class="va">label</span>, <span class="st">"([^\\s]+)"</span><span class="op">)</span>,
+         taxa <span class="op">=</span> <span class="fu">str_extract</span><span class="op">(</span><span class="va">label</span>, <span class="st">"(?&lt;= ).*"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">select</span><span class="op">(</span><span class="va">genbank_id</span>, <span class="va">taxa</span>, <span class="va">sequence</span><span class="op">)</span>
 
-<span class="no">fra_data</span> <span class="kw">&lt;-</span> <span class="no">fra_data</span> <span class="kw">%&gt;%</span>
-  <span class="fu">mutate</span>(<span class="kw">n_base</span> <span class="kw">=</span> <span class="fu"><a href="../reference/seq_nchar.html">seq_nchar</a></span>(<span class="no">sequence</span>))
+<span class="va">fra_data</span> <span class="op">&lt;-</span> <span class="va">fra_data</span> <span class="op">%&gt;%</span> 
+  <span class="fu">mutate</span><span class="op">(</span>n_base <span class="op">=</span> <span class="fu"><a href="../reference/seq_nchar.html">seq_nchar</a></span><span class="op">(</span><span class="va">sequence</span><span class="op">)</span><span class="op">)</span>
 
-<span class="no">fra_data</span>
+<span class="va">fra_data</span>
 <span class="co">#&gt; # A tibble: 41 x 4</span>
 <span class="co">#&gt;    genbank_id taxa           sequence                                     n_base</span>
 <span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;          &lt;DNA&gt;                                         &lt;int&gt;</span>
@@ -164,19 +170,21 @@
 <span class="co">#&gt;  8 MF092945.1 Fragilaria MF… AGTGACCGTTACGAATCTGGTGTAATCCCTTACGCTAAAATGG…   1323</span>
 <span class="co">#&gt;  9 MF092943.1 Fragilaria MF… AGTGACCGTTACGAATCTGGTGTAATCCCTTACGCTAAAATGG…   1323</span>
 <span class="co">#&gt; 10 JQ003574.1 Synedra radia… AAAAANTATGGGCGTGTAGTATACGAAGGTTTAAAAGGTGGAT…    450</span>
-<span class="co">#&gt; # … with 31 more rows</span></pre></body></html></div>
+<span class="co">#&gt; # … with 31 more rows</span></code></pre></div>
 <div id="cropping-sequences" class="section level3">
 <h3 class="hasAnchor">
 <a href="#cropping-sequences" class="anchor"></a>Cropping sequences</h3>
 <p>In this example we are only interested in a particular region of the sequences, a short fragment used in many diatom metabarcoding studies. To extract the region of interest we can provide two nucleotide position but this solution require the sequences to be aligned. The alternative solution is to crop using nucleotide patterns. Here, we will use the forward and reverse primers delimiting the barcode region to crop the sequences. First, we create two DNA vectors one for the forward and one for the reverse primers:</p>
-<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">FWD</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/dna.html">dna</a></span>(<span class="st">"AGGTGAAGTAAAAGGTTCWTACTTAAA"</span>,
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">FWD</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"AGGTGAAGTAAAAGGTTCWTACTTAAA"</span>,
            <span class="st">"AGGTGAAGTTAAAGGTTCWTAYTTAAA"</span>,
-           <span class="st">"AGGTGAAACTAAAGGTTCWTACTTAAA"</span>)
+           <span class="st">"AGGTGAAACTAAAGGTTCWTACTTAAA"</span><span class="op">)</span>
 
-<span class="no">REV</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/dna.html">dna</a></span>(<span class="st">"CAGTWGTWGGTAAATTAGAAGG"</span>,
-           <span class="st">"CTGTTGTWGGTAAATTAGAAGG"</span>)</pre></body></html></div>
+<span class="va">REV</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"CAGTWGTWGGTAAATTAGAAGG"</span>,
+           <span class="st">"CTGTTGTWGGTAAATTAGAAGG"</span><span class="op">)</span></code></pre></div>
 <p>You may have noticed that some characters of the primers are ambiguous which means they can represent several nucleotides. To get all the combinations represented by those ambiguous primer sequences we can use the <code><a href="../reference/seq_disambiguate_IUPAC.html">seq_disambiguate_IUPAC()</a></code> function. For example for the forward primers:</p>
-<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="../reference/seq_disambiguate_IUPAC.html">seq_disambiguate_IUPAC</a></span>(<span class="no">FWD</span>)
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/seq_disambiguate_IUPAC.html">seq_disambiguate_IUPAC</a></span><span class="op">(</span><span class="va">FWD</span><span class="op">)</span>
 <span class="co">#&gt; [[1]]</span>
 <span class="co">#&gt; DNA vector of 2 sequences</span>
 <span class="co">#&gt; &gt;   AGGTGAAGTAAAAGGTTCATACTTAAA</span>
@@ -192,137 +200,146 @@
 <span class="co">#&gt; [[3]]</span>
 <span class="co">#&gt; DNA vector of 2 sequences</span>
 <span class="co">#&gt; &gt;   AGGTGAAACTAAAGGTTCATACTTAAA</span>
-<span class="co">#&gt; &gt;   AGGTGAAACTAAAGGTTCTTACTTAAA</span></pre></body></html></div>
+<span class="co">#&gt; &gt;   AGGTGAAACTAAAGGTTCTTACTTAAA</span></code></pre></div>
 <p>We can see that the three ambiguous sequences used as forward primers actually represent eight different sequences. Fortunately, the functions of <code>bioseq</code> can automatically recognize ambiguous nucleotides and interpret them as such. This is why it is always recommended to construct DNA/RNA/AA vectors instead of simple character vector when it is possible.</p>
 <p>Now we crop the sequences using the forward and reverse primers as delimiters. We can expect that the returned sequences will be aligned because they correspond to a very specific region with a fixed length.</p>
-<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="no">fra_data</span> <span class="kw">&lt;-</span> <span class="no">fra_data</span> <span class="kw">%&gt;%</span>
-  <span class="fu">mutate</span>(<span class="kw">barcode</span> <span class="kw">=</span> <span class="fu"><a href="../reference/seq_crop_pattern.html">seq_crop_pattern</a></span>(<span class="no">sequence</span>,
-                                    <span class="kw">pattern_in</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="no">FWD</span>),
-                                    <span class="kw">pattern_out</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(<span class="no">REV</span>)))
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">fra_data</span> <span class="op">&lt;-</span> <span class="va">fra_data</span> <span class="op">%&gt;%</span> 
+  <span class="fu">mutate</span><span class="op">(</span>barcode <span class="op">=</span> <span class="fu"><a href="../reference/seq_crop_pattern.html">seq_crop_pattern</a></span><span class="op">(</span><span class="va">sequence</span>,
+                                    pattern_in <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">FWD</span><span class="op">)</span>,
+                                    pattern_out <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">REV</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
-<span class="no">fra_data</span>
+<span class="va">fra_data</span>
 <span class="co">#&gt; # A tibble: 41 x 5</span>
 <span class="co">#&gt;    genbank_id taxa       sequence                 n_base barcode                </span>
 <span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;      &lt;DNA&gt;                     &lt;int&gt; &lt;DNA&gt;                  </span>
 <span class="co">#&gt;  1 MK576039.1 Fragilari… TTCATCGCTTATGAATGTGATTT…    635 NA                     </span>
-<span class="co">#&gt;  2 MK672908.1 Fragilari… GCTTTCATCGCTTACGAATGTGA…   1167 CATCACTGCTGCTACTATGGAA…</span>
-<span class="co">#&gt;  3 MK672907.1 Fragilari… ATGTCTCAATCTGTATCAGAACG…   1446 CATCACTGCTGCTACTATGGAA…</span>
-<span class="co">#&gt;  4 MK672906.1 Fragilari… ATGTCTCAATCTGTATCAGAACG…   1446 CATCACTGCTGCTACTATGGAA…</span>
+<span class="co">#&gt;  2 MK672908.1 Fragilari… GCTTTCATCGCTTACGAATGTGA…   1167 AGGTGAAGTTAAAGGTTCTTAC…</span>
+<span class="co">#&gt;  3 MK672907.1 Fragilari… ATGTCTCAATCTGTATCAGAACG…   1446 AGGTGAAGTTAAAGGTTCTTAC…</span>
+<span class="co">#&gt;  4 MK672906.1 Fragilari… ATGTCTCAATCTGTATCAGAACG…   1446 AGGTGAAGTTAAAGGTTCTTAC…</span>
 <span class="co">#&gt;  5 KT072939.1 Fragilari… TTAGCATTATTCCGTATTACTCC…    804 NA                     </span>
 <span class="co">#&gt;  6 KT072928.1 Fragilari… TTAGCATTATTCCGTATTACTCC…    804 NA                     </span>
 <span class="co">#&gt;  7 KT072903.1 Fragilari… TTAGCATTATTCCGTATTACTCC…    804 NA                     </span>
-<span class="co">#&gt;  8 MF092945.1 Fragilari… AGTGACCGTTACGAATCTGGTGT…   1323 CATCACAGCTGCTACTATGGAA…</span>
-<span class="co">#&gt;  9 MF092943.1 Fragilari… AGTGACCGTTACGAATCTGGTGT…   1323 CATTACTGCTGCTACTATGGAT…</span>
+<span class="co">#&gt;  8 MF092945.1 Fragilari… AGTGACCGTTACGAATCTGGTGT…   1323 AGGTGAAGTTAAAGGTTCTTAC…</span>
+<span class="co">#&gt;  9 MF092943.1 Fragilari… AGTGACCGTTACGAATCTGGTGT…   1323 AGGTGAAGTTAAAGGTTCTTAC…</span>
 <span class="co">#&gt; 10 JQ003574.1 Synedra r… AAAAANTATGGGCGTGTAGTATA…    450 NA                     </span>
-<span class="co">#&gt; # … with 31 more rows</span></pre></body></html></div>
-<p>As expected, the barcode sequences seem to be aligned. We can also see that this operation has produced several NAs which correspond to sequences where the primers were not detected, probably because the barcode region was not included in the sequence. We could simply exclude the NA values, but it is safer to filter only the sequences whose length match exactly the expected length of the barcode (i.e. 263 bp).</p>
-<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="no">fra_data</span> <span class="kw">&lt;-</span> <span class="no">fra_data</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span>(<span class="fu"><a href="../reference/seq_nchar.html">seq_nchar</a></span>(<span class="no">barcode</span>) <span class="kw">==</span> <span class="fl">263</span>)
+<span class="co">#&gt; # … with 31 more rows</span></code></pre></div>
+<p>As expected, the barcode sequences seem to be aligned. We can also see that this operation has produced several NAs which correspond to sequences where the primers were not detected, probably because the barcode region was not included in the sequence. We could simply exclude the NA values, but it is safer to filter only the sequences whose length match exactly the expected length of the barcode (i.e. 312 bp).</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">fra_data</span> <span class="op">&lt;-</span> <span class="va">fra_data</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="../reference/seq_nchar.html">seq_nchar</a></span><span class="op">(</span><span class="va">barcode</span><span class="op">)</span> <span class="op">==</span> <span class="fl">312</span><span class="op">)</span>
 
-<span class="no">fra_data</span>
+<span class="va">fra_data</span>
 <span class="co">#&gt; # A tibble: 23 x 5</span>
 <span class="co">#&gt;    genbank_id taxa      sequence                  n_base barcode                </span>
 <span class="co">#&gt;    &lt;chr&gt;      &lt;chr&gt;     &lt;DNA&gt;                      &lt;int&gt; &lt;DNA&gt;                  </span>
-<span class="co">#&gt;  1 MK672908.1 Fragilar… GCTTTCATCGCTTACGAATGTGAT…   1167 CATCACTGCTGCTACTATGGAA…</span>
-<span class="co">#&gt;  2 MK672907.1 Fragilar… ATGTCTCAATCTGTATCAGAACGG…   1446 CATCACTGCTGCTACTATGGAA…</span>
-<span class="co">#&gt;  3 MK672906.1 Fragilar… ATGTCTCAATCTGTATCAGAACGG…   1446 CATCACTGCTGCTACTATGGAA…</span>
-<span class="co">#&gt;  4 MF092945.1 Fragilar… AGTGACCGTTACGAATCTGGTGTA…   1323 CATCACAGCTGCTACTATGGAA…</span>
-<span class="co">#&gt;  5 MF092943.1 Fragilar… AGTGACCGTTACGAATCTGGTGTA…   1323 CATTACTGCTGCTACTATGGAT…</span>
-<span class="co">#&gt;  6 EU090046.1 Fragilar… TGACCGTTACGAATCTGGTGTAAT…   1330 CATCACAGCTGCTACTATGGAA…</span>
-<span class="co">#&gt;  7 EU090045.1 Fragilar… TGACCGTTACGAATCTGGTGTAAT…   1330 CATCACAGCTGCTACTATGGAA…</span>
-<span class="co">#&gt;  8 EU090044.1 Fragilar… TGACCGTTACGAATCTGGTGTAAT…   1330 CATCACAGCTGCTACTATGGAA…</span>
-<span class="co">#&gt;  9 EU090043.1 Fragilar… TGACCGTTACGAATCTGGTGTAAT…   1328 CATCACAGCTGCTACTATGGAA…</span>
-<span class="co">#&gt; 10 EU090042.1 Fragilar… ACCGTTACGAATCTGGTGTAATCC…   1329 CATCACAGCTGCTACTATGGAA…</span>
-<span class="co">#&gt; # … with 13 more rows</span></pre></body></html></div>
+<span class="co">#&gt;  1 MK672908.1 Fragilar… GCTTTCATCGCTTACGAATGTGAT…   1167 AGGTGAAGTTAAAGGTTCTTAC…</span>
+<span class="co">#&gt;  2 MK672907.1 Fragilar… ATGTCTCAATCTGTATCAGAACGG…   1446 AGGTGAAGTTAAAGGTTCTTAC…</span>
+<span class="co">#&gt;  3 MK672906.1 Fragilar… ATGTCTCAATCTGTATCAGAACGG…   1446 AGGTGAAGTTAAAGGTTCTTAC…</span>
+<span class="co">#&gt;  4 MF092945.1 Fragilar… AGTGACCGTTACGAATCTGGTGTA…   1323 AGGTGAAGTTAAAGGTTCTTAC…</span>
+<span class="co">#&gt;  5 MF092943.1 Fragilar… AGTGACCGTTACGAATCTGGTGTA…   1323 AGGTGAAGTTAAAGGTTCTTAC…</span>
+<span class="co">#&gt;  6 EU090046.1 Fragilar… TGACCGTTACGAATCTGGTGTAAT…   1330 AGGTGAAACTAAAGGTTCTTAC…</span>
+<span class="co">#&gt;  7 EU090045.1 Fragilar… TGACCGTTACGAATCTGGTGTAAT…   1330 AGGTGAAACTAAAGGTTCTTAC…</span>
+<span class="co">#&gt;  8 EU090044.1 Fragilar… TGACCGTTACGAATCTGGTGTAAT…   1330 AGGTGAAACTAAAGGTTCTTAC…</span>
+<span class="co">#&gt;  9 EU090043.1 Fragilar… TGACCGTTACGAATCTGGTGTAAT…   1328 AGGTGAAACTAAAGGTTCTTAC…</span>
+<span class="co">#&gt; 10 EU090042.1 Fragilar… ACCGTTACGAATCTGGTGTAATCC…   1329 AGGTGAAACTAAAGGTTCTTAC…</span>
+<span class="co">#&gt; # … with 13 more rows</span></code></pre></div>
 </div>
 <div id="consensus-sequences-and-phylogeny" class="section level3">
 <h3 class="hasAnchor">
 <a href="#consensus-sequences-and-phylogeny" class="anchor"></a>Consensus sequences and phylogeny</h3>
 <p>We now want to reconstruct a phylogenetic tree for the sequences. We can include all the sequences in the tree but for clarity we want keep only one sequence per taxa. Instead of selecting one sequence randomly we compute a consensus sequence for each taxa using the function <code><a href="../reference/seq_consensus.html">seq_consensus()</a></code>. There are different methods to compute a consensus sequence implemented in the function, you can check the manual for details. The default method used below uses the majority rule.</p>
-<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="no">fra_consensus</span> <span class="kw">&lt;-</span> <span class="no">fra_data</span> <span class="kw">%&gt;%</span>
-  <span class="fu">group_by</span>(<span class="no">taxa</span>) <span class="kw">%&gt;%</span>
-  <span class="fu">summarise</span>(<span class="kw">consensus_barcode</span> <span class="kw">=</span> <span class="fu"><a href="../reference/seq_consensus.html">seq_consensus</a></span>(<span class="no">barcode</span>))
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">fra_consensus</span> <span class="op">&lt;-</span> <span class="va">fra_data</span> <span class="op">%&gt;%</span> 
+  <span class="fu">group_by</span><span class="op">(</span><span class="va">taxa</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">summarise</span><span class="op">(</span>consensus_barcode <span class="op">=</span> <span class="fu"><a href="../reference/seq_consensus.html">seq_consensus</a></span><span class="op">(</span><span class="va">barcode</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; `summarise()` ungrouping output (override with `.groups` argument)</span>
 
-<span class="no">fra_consensus</span>
+<span class="va">fra_consensus</span>
 <span class="co">#&gt; # A tibble: 20 x 2</span>
 <span class="co">#&gt;    taxa              consensus_barcode                                          </span>
 <span class="co">#&gt;    &lt;chr&gt;             &lt;DNA&gt;                                                      </span>
-<span class="co">#&gt;  1 Fragilaria agnes… CATCACTGCTGCTACTATGGAAGAACTTTACAAACGTGGTGAGTACGCTAAAGCTGTA…</span>
-<span class="co">#&gt;  2 Fragilaria bidens CATCACTGCTGCTACTATGGAAGAACTTTACAAACGTGGTGATTACGCTAAAGCTGTA…</span>
-<span class="co">#&gt;  3 Fragilaria croto… CATCACTGCTGCTACTATGGAAGAACTTTACAAACGTGGTGCTTACGCTAAAGCTGTA…</span>
-<span class="co">#&gt;  4 Fragilaria EU090… CATCACAGCTGCTACTATGGAAGAAGTTTACAAGCGTGGTGAATATGCCAAAGCTGTA…</span>
-<span class="co">#&gt;  5 Fragilaria EU090… CATCACAGCTGCTACTATGGAAGAAGTTTACAAGCGTGGTGAATATGCTAAAGCTGTA…</span>
-<span class="co">#&gt;  6 Fragilaria EU090… CATCACAGCTGCTACTATGGAAGAAGTTTACAAGCGTGGTGAATATGCTAAAGCTGTA…</span>
-<span class="co">#&gt;  7 Fragilaria EU090… CATCACAGCTGCTACTATGGAAGAAGTTTACAAGCGTGGTGAATATGCTAAAGCTGTA…</span>
-<span class="co">#&gt;  8 Fragilaria EU090… CATCACAGCTGCTACTATGGAAGAAGTTTACAAGCGTGGTGAATATGCTAAAGCTGTA…</span>
-<span class="co">#&gt;  9 Fragilaria EU090… CATCACAGCTGCTACTATGGAAGAAGTTTACAAGCGTGGTGAATATGCTAAAGCTGTA…</span>
-<span class="co">#&gt; 10 Fragilaria EU090… CATCACAGCTGCTACTATGGAAGAAGTTTACAAGCGTGGTGAATATGCTAAAGCTGTA…</span>
-<span class="co">#&gt; 11 Fragilaria famel… CATCACTGCTGCTACTATGGAAGAAGTTTACAAACGTGGTGAGTATGCTAAAGCTGTA…</span>
-<span class="co">#&gt; 12 Fragilaria heath… CATCACTGCTGCTACTATGGAAGAGCTTTACAAACGTGGTGAGTACGCTAAAGCTGTA…</span>
-<span class="co">#&gt; 13 Fragilaria joach… CATCACTGCTGCTACTATGGAAGAACTTTACAAACGTGGTGAGTACGCTAAAGCTGTA…</span>
-<span class="co">#&gt; 14 Fragilaria KC969… CATCACAGCTGCTACTATGGAAGAAGTTTACAAGCGTGGTGAATATGCCAAAGCTGTA…</span>
-<span class="co">#&gt; 15 Fragilaria KC969… CGTTACAGCTGCTACTATGGAAGATGTATACAAACGTAGTGAGTATGCTAAAGCTGTA…</span>
-<span class="co">#&gt; 16 Fragilaria MF092… CATTACTGCTGCTACTATGGATGAACTTTACAAACGTGGTGAGTACGCTAAAGCTGTA…</span>
-<span class="co">#&gt; 17 Fragilaria MF092… CATCACAGCTGCTACTATGGAAGAACTTTACAAACGTGGTGAATACGCTAAAGCTGTA…</span>
-<span class="co">#&gt; 18 Fragilaria permi… CATTACTGCTGCTACTATGGAAGAACTTTACAAACGTGGTGAGTACGCTAAAGCTGTA…</span>
-<span class="co">#&gt; 19 Fragilaria rumpe… CATCACGGCTGCTACTATGGAAGAACTTTACAAACGTGGTGCTTACGCTAAAGCTGTA…</span>
-<span class="co">#&gt; 20 Fragilaria stria… CATCACAGCTGCTACTATGGAAGAAGTTTACAAGCGTGGTGAATATGCCAAAGCTGTA…</span></pre></body></html></div>
+<span class="co">#&gt;  1 Fragilaria agnes… AGGTGAAGTTAAAGGTTCTTACTTAAACATCACTGCTGCTACTATGGAAGAACTTTAC…</span>
+<span class="co">#&gt;  2 Fragilaria bidens AGGTGAAGTTAAAGGTTCTTACTTAAACATCACTGCTGCTACTATGGAAGAACTTTAC…</span>
+<span class="co">#&gt;  3 Fragilaria croto… AGGTGAAGTTAAAGGTTCTTACTTAAACATCACTGCTGCTACTATGGAAGAACTTTAC…</span>
+<span class="co">#&gt;  4 Fragilaria EU090… AGGTGAAACTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGAAGTTTAC…</span>
+<span class="co">#&gt;  5 Fragilaria EU090… AGGTGAAACTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGAAGTTTAC…</span>
+<span class="co">#&gt;  6 Fragilaria EU090… AGGTGAAACTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGAAGTTTAC…</span>
+<span class="co">#&gt;  7 Fragilaria EU090… AGGTGAAACTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGAAGTTTAC…</span>
+<span class="co">#&gt;  8 Fragilaria EU090… AGGTGAAACTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGAAGTTTAC…</span>
+<span class="co">#&gt;  9 Fragilaria EU090… AGGTGAAACTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGAAGTTTAC…</span>
+<span class="co">#&gt; 10 Fragilaria EU090… AGGTGAAACTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGAAGTTTAC…</span>
+<span class="co">#&gt; 11 Fragilaria famel… AGGTGAAGTTAAAGGTTCTTACTTAAACATCACTGCTGCTACTATGGAAGAAGTTTAC…</span>
+<span class="co">#&gt; 12 Fragilaria heath… AGGTGAAGTTAAAGGTTCTTACTTAAACATCACTGCTGCTACTATGGAAGAGCTTTAC…</span>
+<span class="co">#&gt; 13 Fragilaria joach… AGGTGAAGTTAAAGGTTCTTACTTAAACATCACTGCTGCTACTATGGAAGAACTTTAC…</span>
+<span class="co">#&gt; 14 Fragilaria KC969… AGGTGAAACTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGAAGTTTAC…</span>
+<span class="co">#&gt; 15 Fragilaria KC969… AGGTGAAACTAAAGGTTCTTACTTAAACGTTACAGCTGCTACTATGGAAGATGTATAC…</span>
+<span class="co">#&gt; 16 Fragilaria MF092… AGGTGAAGTTAAAGGTTCTTACTTAAACATTACTGCTGCTACTATGGATGAACTTTAC…</span>
+<span class="co">#&gt; 17 Fragilaria MF092… AGGTGAAGTTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGAACTTTAC…</span>
+<span class="co">#&gt; 18 Fragilaria permi… AGGTGAAGTTAAAGGTTCTTACTTAAACATTACTGCTGCTACTATGGAAGAACTTTAC…</span>
+<span class="co">#&gt; 19 Fragilaria rumpe… AGGTGAAGTTAAAGGTTCTTACTTAAACATCACGGCTGCTACTATGGAAGAACTTTAC…</span>
+<span class="co">#&gt; 20 Fragilaria stria… AGGTGAAACTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGAAGTTTAC…</span></code></pre></div>
 <p>Next, we will use <code>ape</code> to do a quick phylogenetic reconstruction of these sequences. We can use the function <code>as_DNAbin</code> to convert a tibble into a <code>DNAbin</code> object and then use the functions of <code>ape</code> to reconstruct and plot a phylogenetic tree with the distance-based BIONJ algorithm.</p>
-<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="no">fra_consensus</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="../reference/as_DNAbin.html">as_DNAbin</a></span>(<span class="no">consensus_barcode</span>, <span class="no">taxa</span>) <span class="kw">%&gt;%</span>
-  <span class="kw pkg">ape</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/ape/man/dist.dna.html">dist.dna</a></span>() <span class="kw">%&gt;%</span>
-  <span class="kw pkg">ape</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/ape/man/bionj.html">bionj</a></span>() <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>()</pre></body></html></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">fra_consensus</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="../reference/as_DNAbin.html">as_DNAbin</a></span><span class="op">(</span><span class="va">consensus_barcode</span>, <span class="va">taxa</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">ape</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ape/man/dist.dna.html">dist.dna</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">ape</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ape/man/bionj.html">bionj</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="ref_database_files/figure-html/unnamed-chunk-14-1.png" width="576"></p>
 </div>
 <div id="clustering-sequences" class="section level3">
 <h3 class="hasAnchor">
 <a href="#clustering-sequences" class="anchor"></a>Clustering sequences</h3>
 <p>The tree above suggests that several sequences are exactly the same. This can be quickly assessed:</p>
-<div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html">duplicated</a></span>(<span class="no">fra_consensus</span>$<span class="no">consensus_barcode</span>)
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/duplicated.html">duplicated</a></span><span class="op">(</span><span class="va">fra_consensus</span><span class="op">$</span><span class="va">consensus_barcode</span><span class="op">)</span>
 <span class="co">#&gt;  [1] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE</span>
-<span class="co">#&gt; [13] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE</span></pre></body></html></div>
+<span class="co">#&gt; [13] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE</span></code></pre></div>
 <p>Indeed, several sequences are duplicates and we may want to keep only unique sequences. We could select only unique sequence but here we rather use the <code>seq_cluster</code> function to cluster sequences based on their similarity.</p>
-<div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="no">fra_consensus</span> <span class="kw">&lt;-</span>
-  <span class="no">fra_consensus</span> <span class="kw">%&gt;%</span>
-  <span class="fu">mutate</span>(<span class="kw">cluster</span> <span class="kw">=</span> <span class="fu"><a href="../reference/seq_cluster.html">seq_cluster</a></span>(<span class="no">consensus_barcode</span>,
-                               <span class="kw">threshold</span> <span class="kw">=</span> <span class="fl">0.001</span>))
-<span class="no">fra_consensus</span>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">fra_consensus</span> <span class="op">&lt;-</span> 
+  <span class="va">fra_consensus</span> <span class="op">%&gt;%</span> 
+  <span class="fu">mutate</span><span class="op">(</span>cluster <span class="op">=</span> <span class="fu"><a href="../reference/seq_cluster.html">seq_cluster</a></span><span class="op">(</span><span class="va">consensus_barcode</span>,
+                               threshold <span class="op">=</span> <span class="fl">0.001</span><span class="op">)</span><span class="op">)</span>
+<span class="va">fra_consensus</span>
 <span class="co">#&gt; # A tibble: 20 x 3</span>
 <span class="co">#&gt;    taxa             consensus_barcode                                    cluster</span>
 <span class="co">#&gt;    &lt;chr&gt;            &lt;DNA&gt;                                                  &lt;int&gt;</span>
-<span class="co">#&gt;  1 Fragilaria agne… CATCACTGCTGCTACTATGGAAGAACTTTACAAACGTGGTGAGTACGCTAA…       1</span>
-<span class="co">#&gt;  2 Fragilaria bide… CATCACTGCTGCTACTATGGAAGAACTTTACAAACGTGGTGATTACGCTAA…       2</span>
-<span class="co">#&gt;  3 Fragilaria crot… CATCACTGCTGCTACTATGGAAGAACTTTACAAACGTGGTGCTTACGCTAA…       3</span>
-<span class="co">#&gt;  4 Fragilaria EU09… CATCACAGCTGCTACTATGGAAGAAGTTTACAAGCGTGGTGAATATGCCAA…       4</span>
-<span class="co">#&gt;  5 Fragilaria EU09… CATCACAGCTGCTACTATGGAAGAAGTTTACAAGCGTGGTGAATATGCTAA…       5</span>
-<span class="co">#&gt;  6 Fragilaria EU09… CATCACAGCTGCTACTATGGAAGAAGTTTACAAGCGTGGTGAATATGCTAA…       5</span>
-<span class="co">#&gt;  7 Fragilaria EU09… CATCACAGCTGCTACTATGGAAGAAGTTTACAAGCGTGGTGAATATGCTAA…       5</span>
-<span class="co">#&gt;  8 Fragilaria EU09… CATCACAGCTGCTACTATGGAAGAAGTTTACAAGCGTGGTGAATATGCTAA…       5</span>
-<span class="co">#&gt;  9 Fragilaria EU09… CATCACAGCTGCTACTATGGAAGAAGTTTACAAGCGTGGTGAATATGCTAA…       5</span>
-<span class="co">#&gt; 10 Fragilaria EU09… CATCACAGCTGCTACTATGGAAGAAGTTTACAAGCGTGGTGAATATGCTAA…       5</span>
-<span class="co">#&gt; 11 Fragilaria fame… CATCACTGCTGCTACTATGGAAGAAGTTTACAAACGTGGTGAGTATGCTAA…       6</span>
-<span class="co">#&gt; 12 Fragilaria heat… CATCACTGCTGCTACTATGGAAGAGCTTTACAAACGTGGTGAGTACGCTAA…       7</span>
-<span class="co">#&gt; 13 Fragilaria joac… CATCACTGCTGCTACTATGGAAGAACTTTACAAACGTGGTGAGTACGCTAA…       8</span>
-<span class="co">#&gt; 14 Fragilaria KC96… CATCACAGCTGCTACTATGGAAGAAGTTTACAAGCGTGGTGAATATGCCAA…       4</span>
-<span class="co">#&gt; 15 Fragilaria KC96… CGTTACAGCTGCTACTATGGAAGATGTATACAAACGTAGTGAGTATGCTAA…       9</span>
-<span class="co">#&gt; 16 Fragilaria MF09… CATTACTGCTGCTACTATGGATGAACTTTACAAACGTGGTGAGTACGCTAA…      10</span>
-<span class="co">#&gt; 17 Fragilaria MF09… CATCACAGCTGCTACTATGGAAGAACTTTACAAACGTGGTGAATACGCTAA…      11</span>
-<span class="co">#&gt; 18 Fragilaria perm… CATTACTGCTGCTACTATGGAAGAACTTTACAAACGTGGTGAGTACGCTAA…      12</span>
-<span class="co">#&gt; 19 Fragilaria rump… CATCACGGCTGCTACTATGGAAGAACTTTACAAACGTGGTGCTTACGCTAA…      13</span>
-<span class="co">#&gt; 20 Fragilaria stri… CATCACAGCTGCTACTATGGAAGAAGTTTACAAGCGTGGTGAATATGCCAA…       4</span></pre></body></html></div>
+<span class="co">#&gt;  1 Fragilaria agne… AGGTGAAGTTAAAGGTTCTTACTTAAACATCACTGCTGCTACTATGGAAGA…       1</span>
+<span class="co">#&gt;  2 Fragilaria bide… AGGTGAAGTTAAAGGTTCTTACTTAAACATCACTGCTGCTACTATGGAAGA…       2</span>
+<span class="co">#&gt;  3 Fragilaria crot… AGGTGAAGTTAAAGGTTCTTACTTAAACATCACTGCTGCTACTATGGAAGA…       3</span>
+<span class="co">#&gt;  4 Fragilaria EU09… AGGTGAAACTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGA…       4</span>
+<span class="co">#&gt;  5 Fragilaria EU09… AGGTGAAACTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGA…       5</span>
+<span class="co">#&gt;  6 Fragilaria EU09… AGGTGAAACTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGA…       5</span>
+<span class="co">#&gt;  7 Fragilaria EU09… AGGTGAAACTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGA…       5</span>
+<span class="co">#&gt;  8 Fragilaria EU09… AGGTGAAACTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGA…       5</span>
+<span class="co">#&gt;  9 Fragilaria EU09… AGGTGAAACTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGA…       5</span>
+<span class="co">#&gt; 10 Fragilaria EU09… AGGTGAAACTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGA…       5</span>
+<span class="co">#&gt; 11 Fragilaria fame… AGGTGAAGTTAAAGGTTCTTACTTAAACATCACTGCTGCTACTATGGAAGA…       6</span>
+<span class="co">#&gt; 12 Fragilaria heat… AGGTGAAGTTAAAGGTTCTTACTTAAACATCACTGCTGCTACTATGGAAGA…       7</span>
+<span class="co">#&gt; 13 Fragilaria joac… AGGTGAAGTTAAAGGTTCTTACTTAAACATCACTGCTGCTACTATGGAAGA…       8</span>
+<span class="co">#&gt; 14 Fragilaria KC96… AGGTGAAACTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGA…       4</span>
+<span class="co">#&gt; 15 Fragilaria KC96… AGGTGAAACTAAAGGTTCTTACTTAAACGTTACAGCTGCTACTATGGAAGA…       9</span>
+<span class="co">#&gt; 16 Fragilaria MF09… AGGTGAAGTTAAAGGTTCTTACTTAAACATTACTGCTGCTACTATGGATGA…      10</span>
+<span class="co">#&gt; 17 Fragilaria MF09… AGGTGAAGTTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGA…      11</span>
+<span class="co">#&gt; 18 Fragilaria perm… AGGTGAAGTTAAAGGTTCTTACTTAAACATTACTGCTGCTACTATGGAAGA…      12</span>
+<span class="co">#&gt; 19 Fragilaria rump… AGGTGAAGTTAAAGGTTCTTACTTAAACATCACGGCTGCTACTATGGAAGA…      13</span>
+<span class="co">#&gt; 20 Fragilaria stri… AGGTGAAACTAAAGGTTCTTACTTAAACATCACAGCTGCTACTATGGAAGA…       4</span></code></pre></div>
 <p>Finally we recompute a consensus sequence for each cluster and we reconstruct the phylogenetic tree.</p>
-<div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="no">fra_consensus</span> <span class="kw">&lt;-</span>
-  <span class="no">fra_consensus</span> <span class="kw">%&gt;%</span>
-  <span class="fu">group_by</span>(<span class="no">cluster</span>) <span class="kw">%&gt;%</span>
-  <span class="fu">summarise</span>(<span class="kw">taxa_group</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="no">taxa</span>, <span class="kw">collapse</span> <span class="kw">=</span> <span class="st">"/"</span>),
-            <span class="kw">consensus_barcode</span> <span class="kw">=</span> <span class="fu"><a href="../reference/seq_consensus.html">seq_consensus</a></span>(<span class="no">consensus_barcode</span>))
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">fra_consensus</span> <span class="op">&lt;-</span>
+  <span class="va">fra_consensus</span> <span class="op">%&gt;%</span> 
+  <span class="fu">group_by</span><span class="op">(</span><span class="va">cluster</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">summarise</span><span class="op">(</span>taxa_group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">taxa</span>, collapse <span class="op">=</span> <span class="st">"/"</span><span class="op">)</span>,
+            consensus_barcode <span class="op">=</span> <span class="fu"><a href="../reference/seq_consensus.html">seq_consensus</a></span><span class="op">(</span><span class="va">consensus_barcode</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; `summarise()` ungrouping output (override with `.groups` argument)</span>
 
-<span class="no">fra_consensus</span> <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="../reference/as_DNAbin.html">as_DNAbin</a></span>(<span class="no">consensus_barcode</span>, <span class="no">taxa_group</span>) <span class="kw">%&gt;%</span>
-  <span class="kw pkg">ape</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/ape/man/dist.dna.html">dist.dna</a></span>() <span class="kw">%&gt;%</span>
-  <span class="kw pkg">ape</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/ape/man/bionj.html">bionj</a></span>() <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>()</pre></body></html></div>
+<span class="va">fra_consensus</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="../reference/as_DNAbin.html">as_DNAbin</a></span><span class="op">(</span><span class="va">consensus_barcode</span>, <span class="va">taxa_group</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">ape</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ape/man/dist.dna.html">dist.dna</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">ape</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ape/man/bionj.html">bionj</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="ref_database_files/figure-html/unnamed-chunk-17-1.png" width="576"></p>
 <p>It is important to note that this tree is not an accurate phylogenetic reconstruction but it can help to visualise the hierarchical relationships between the sequences. This is particularly useful with larger datasets to detect polyphyletic clades unresolved by the barcode region.</p>
 </div>
@@ -330,10 +347,11 @@
 <h3 class="hasAnchor">
 <a href="#exporting-data" class="anchor"></a>Exporting data</h3>
 <p>When we are happy with the results, we usually want to export the data. Here, we could export directly the dataframe using <code>write_csv()</code>. However, it might be more convenient to export sequences in FASTA to open them in an other software later. This can be achieved using the function <code><a href="../reference/write_fasta.html">write_fasta()</a></code>.</p>
-<div class="sourceCode" id="cb16"><html><body><pre class="r"><span class="no">fra_consensus</span> <span class="kw">%&gt;%</span>
-  <span class="fu">select</span>(<span class="no">taxa_group</span>, <span class="no">consensus_barcode</span>) <span class="kw">%&gt;%</span>
-  <span class="fu">deframe</span>() <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="../reference/write_fasta.html">write_fasta</a></span>(<span class="st">"my_sequences.fasta"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">fra_consensus</span> <span class="op">%&gt;%</span> 
+  <span class="fu">select</span><span class="op">(</span><span class="va">taxa_group</span>, <span class="va">consensus_barcode</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://tibble.tidyverse.org/reference/enframe.html">deframe</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="../reference/write_fasta.html">write_fasta</a></span><span class="op">(</span><span class="st">"my_sequences.fasta"</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
   </div>
@@ -353,7 +371,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

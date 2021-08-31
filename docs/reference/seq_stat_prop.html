@@ -80,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bioseq</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
       </span>
     </div>
 
@@ -88,7 +88,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -117,7 +117,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/fkeck/bioseq/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -143,7 +143,7 @@
     <p>Compute proportions for characters</p>
     </div>
 
-    <pre class="usage"><span class='fu'>seq_stat_prop</span>(<span class='no'>x</span>, <span class='kw'>gaps</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>seq_stat_prop</span><span class='op'>(</span><span class='va'>x</span>, gaps <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -164,14 +164,18 @@
 proportion of characters in each sequence.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other op-misc: <code><a href='seq_disambiguate_IUPAC.html'>seq_disambiguate_IUPAC</a></code>,
-  <code><a href='seq_nchar.html'>seq_nchar</a></code>, <code><a href='seq_nseq.html'>seq_nseq</a></code>,
-  <code><a href='seq_spellout.html'>seq_spellout</a></code>, <code><a href='seq_stat_gc.html'>seq_stat_gc</a></code></p></div>
+    <div class='dont-index'><p>Other op-misc: 
+<code><a href='seq_disambiguate_IUPAC.html'>seq_disambiguate_IUPAC</a>()</code>,
+<code><a href='seq_nchar.html'>seq_nchar</a>()</code>,
+<code><a href='seq_nseq.html'>seq_nseq</a>()</code>,
+<code><a href='seq_spellout.html'>seq_spellout</a>()</code>,
+<code><a href='seq_stat_gc.html'>seq_stat_gc</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dna.html'>dna</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ATGCAGA"</span>, <span class='st'>"GGR-----"</span>,<span class='st'>"TTGCCTAGKTGAACC"</span>))
-<span class='fu'>seq_stat_prop</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [[1]]
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dna.html'>dna</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"ATGCAGA"</span>, <span class='st'>"GGR-----"</span>,<span class='st'>"TTGCCTAGKTGAACC"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>seq_stat_prop</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt;         A         C         G         T         W         S         M         K 
 #&gt; 0.4285714 0.1428571 0.2857143 0.1428571 0.0000000 0.0000000 0.0000000 0.0000000 
 #&gt;         R         Y         B         D         H         V         N 
@@ -190,7 +194,8 @@ proportion of characters in each sequence.</p>
 #&gt; 0.06666667 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 
 #&gt;          N 
 #&gt; 0.00000000 
-#&gt; </div><div class='input'><span class='fu'>seq_stat_prop</span>(<span class='no'>x</span>, <span class='kw'>gaps</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [[1]]
+#&gt; </div><div class='input'><span class='fu'>seq_stat_prop</span><span class='op'>(</span><span class='va'>x</span>, gaps <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt;         A         C         G         T         W         S         M         K 
 #&gt; 0.4285714 0.1428571 0.2857143 0.1428571 0.0000000 0.0000000 0.0000000 0.0000000 
 #&gt;         R         Y         B         D         H         V         N         - 
@@ -226,7 +231,7 @@ proportion of characters in each sequence.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

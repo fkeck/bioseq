@@ -83,7 +83,7 @@ to produce many ambiguous nucleotides." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bioseq</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
       </span>
     </div>
 
@@ -91,7 +91,7 @@ to produce many ambiguous nucleotides." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -120,7 +120,7 @@ to produce many ambiguous nucleotides." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/fkeck/bioseq/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -149,7 +149,7 @@ Because of codon degeneracy it is expected
 to produce many ambiguous nucleotides.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>seq_rev_translate</span>(<span class='no'>x</span>, <span class='kw'>code</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
+    <pre class="usage"><span class='fu'>seq_rev_translate</span><span class='op'>(</span><span class='va'>x</span>, code <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -174,17 +174,21 @@ reverse translation (default 1 uses the Standard genetic code). See Details.</p>
 removed prior to the translation with the function <code>seq_remove_gap</code>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other biological operations: <code><a href='rev_complement.html'>rev_complement</a></code>,
-  <code><a href='seq_translate.html'>seq_translate</a></code>, <code><a href='transcription.html'>transcription</a></code></p></div>
+    <div class='dont-index'><p>Other biological operations: 
+<code><a href='rev_complement.html'>rev_complement</a></code>,
+<code><a href='seq_translate.html'>seq_translate</a>()</code>,
+<code><a href='transcription.html'>transcription</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='dna.html'>dna</a></span>(<span class='st'>"ACTTTGGCTAAG"</span>)
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='seq_translate.html'>seq_translate</a></span>(<span class='no'>x</span>)
-<span class='no'>z</span> <span class='kw'>&lt;-</span> <span class='fu'>seq_rev_translate</span>(<span class='no'>y</span>)
-<span class='no'>z</span></div><div class='output co'>#&gt; <span style='color: #949494;'>DNA vector of 1 sequences</span><span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='dna.html'>dna</a></span><span class='op'>(</span><span class='st'>"ACTTTGGCTAAG"</span><span class='op'>)</span>
+<span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='seq_translate.html'>seq_translate</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+<span class='va'>z</span> <span class='op'>&lt;-</span> <span class='fu'>seq_rev_translate</span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>
+<span class='va'>z</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'>DNA vector of 1 sequences</span><span>
 #&gt; </span><span style='color: #949494;font-style: italic;'>&gt; </span><span>  </span><span style='color: #BB0000;font-weight: bold;'>A</span><span style='color: #00BB00;font-weight: bold;'>C</span><span>NY</span><span style='color: #0000BB;font-weight: bold;'>T</span><span>N</span><span style='color: #BBBB00;font-weight: bold;'>G</span><span style='color: #00BB00;font-weight: bold;'>C</span><span>N</span><span style='color: #BB0000;font-weight: bold;'>AA</span><span>R</div><div class='input'><span class='co'># There is a loss of information during the reverse translation</span>
-<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span>(<span class='no'>x</span>, <span class='no'>z</span>)</div><div class='output co'>#&gt; [1] "1 string mismatch"</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>z</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "1 string mismatch"</div><div class='input'>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -201,7 +205,7 @@ removed prior to the translation with the function <code>seq_remove_gap</code>.<
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
