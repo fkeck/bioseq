@@ -1,4 +1,4 @@
-# bioseq devel
+# bioseq 0.1.3
 
 ## Minor changes
 
