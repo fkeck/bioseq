@@ -4,7 +4,7 @@
 \alias{write_fasta}
 \title{Write sequences in FASTA format}
 \usage{
-write_fasta(x, file, append = FALSE)
+write_fasta(x, file, append = FALSE, line_length = 80, block_length = 10)
 }
 \arguments{
 \item{x}{a DNA, RNA or AA vector.}
@@ -13,6 +13,13 @@ write_fasta(x, file, append = FALSE)
 
 \item{append}{a logical. If \code{TRUE} append the data to the file.
 If \code{FALSE} (default), overwrite the file.}
+
+\item{line_length}{length (in number of character) of one line
+(excluding spaces separating blocks). Use \code{Inf} to avoid line breaks.}
+
+\item{block_length}{length (in number of character) of one block.
+Use the same value as \code{line_length} or \code{Inf} to avoid
+block separation.}
 }
 \description{
 Write sequences in FASTA format
