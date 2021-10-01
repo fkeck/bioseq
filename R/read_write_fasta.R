@@ -31,13 +31,39 @@ read_fasta <- function(file, type = "DNA") {
 #' @param file a path to a file or a connection.
 #' @param append a logical. If \code{TRUE} append the data to the file.
 #' If \code{FALSE} (default), overwrite the file.
+#' @param line_length length (in number of character) of one line
+#' (excluding spaces separating blocks). Use \code{Inf} to avoid line breaks.
+#' @param block_length length (in number of character) of one block.
+#' Use the same value as \code{line_length} or \code{Inf} to avoid
+#' block separation.
+#'
 #' @family input/output operations
 #' @export
 #'
-write_fasta <- function(x, file, append = FALSE) {
+write_fasta <- function(x, file, append = FALSE, line_length = 80, block_length = 10) {
 
   x_nchar <- stringr::str_length(x)
   x_is_na <- is.na(x)
+
+  if(line_length == Inf) {
+    line_length <- max(x_nchar, na.rm = TRUE)
+  }
+
+  if(block_length == Inf) {
+    block_length <- line_length
+  }
+
+  blocks_by_line <- line_length/block_length
+
+  if(block_length > line_length) {
+    stop("The length of blocks cannot be higher than the length of lines")
+  }
+
+  if(line_length %% block_length > 0L) {
+    stop("The length of lines must be a multiple of the length of blocks")
+  }
+
+
   if(any(x_is_na | x_nchar == 0L)) {
     input_len <- length(x)
     x <- x[!is.na(x)]
@@ -50,11 +76,11 @@ write_fasta <- function(x, file, append = FALSE) {
   x <- as.character(x)
   x <- vapply(x, function(x) {
     x_len <- stringr::str_length(x)
-    blocks <- seq(1, x_len, by = 10)
-    res <- stringr::str_sub(x, blocks, blocks -1 + 10)
+    blocks <- seq(1, x_len, by = block_length)
+    res <- stringr::str_sub(x, blocks, blocks -1 + block_length)
     separator <- rep(" ", length(res))
-    if(x_len > 80) {
-      separator[seq(8, 8 * (x_len %/% 80), 8)] <- "\n"
+    if(x_len > line_length) {
+      separator[seq(blocks_by_line, blocks_by_line * (x_len %/% line_length), blocks_by_line)] <- "\n"
     }
     separator[length(separator)] <- ""
     res <- stringr::str_c(res, separator, collapse = "")

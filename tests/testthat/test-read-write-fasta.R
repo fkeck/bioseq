@@ -94,4 +94,43 @@ test_that("Write fasta raises warning with NA ", {
 })
 
 
+test_that("Read/write fasta works with block and line length arguments", {
+  test <- read_fasta("example_fasta_multi.fasta")
 
+  # Defaults
+  test_file <- tempfile(fileext = ".fasta")
+  write_fasta(test, file = test_file)
+  test_reread <- read_fasta(test_file)
+  expect_equal(test, test_reread)
+
+  # Other values
+  test_file <- tempfile(fileext = ".fasta")
+  write_fasta(test, file = test_file, line_length = 100, block_length = 10)
+  test_reread <- read_fasta(test_file)
+  expect_equal(test, test_reread)
+
+  # Same values
+  test_file <- tempfile(fileext = ".fasta")
+  write_fasta(test, file = test_file, line_length = 12, block_length = 12)
+  test_reread <- read_fasta(test_file)
+  expect_equal(test, test_reread)
+
+  # Infinite values
+  test_file <- tempfile(fileext = ".fasta")
+  write_fasta(test, file = test_file, line_length = Inf, block_length = Inf)
+  test_reread <- read_fasta(test_file)
+  expect_equal(test, test_reread)
+
+  # Error non-multiple values
+  test_file <- tempfile(fileext = ".fasta")
+  expect_error(
+    write_fasta(test, file = test_file, line_length = 99, block_length = 10),
+    "multiple"
+  )
+
+  # Error blocks too large
+  test_file <- tempfile(fileext = ".fasta")
+  expect_error(
+    write_fasta(test, file = test_file, line_length = 100, block_length = 10000),
+    "higher")
+})

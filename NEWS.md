@@ -1,3 +1,9 @@
+# bioseq dev version
+
+## Minor changes
+
+* Add arguments to `write_fasta()` to control line and block lengths.
+
 # bioseq 0.1.3
 
 ## Minor changes
