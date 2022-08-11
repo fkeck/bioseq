@@ -46,3 +46,14 @@ test_that("check_and_prepare_pattern warns if length x < pattern", {
   dna_test2 <- dna("ACGA", "AAC")
   expect_warning(check_and_prepare_pattern(dna_test1, dna_test2))
 })
+
+test_that("validate_seq issues proper message in case of invalid character replacement", {
+  expect_warning(dna("ACGTJ"),
+                 "Non-standard IUPAC symbols detected for DNA: 1 characters were converted to N.")
+  expect_warning(rna("ACGTJ"),
+                 "Non-standard IUPAC symbols detected for RNA: 2 characters were converted to N.")
+  expect_warning(aa("ACGT8"),
+                 "Non-standard IUPAC symbols detected for AA: 1 characters were converted to X.")
+})
+
+

@@ -36,9 +36,18 @@ validate_seq <- function(x, alphabet, invalid_replacement, type = "DNA") {
   if(n_nonvalid > 0) {
     x <- stringr::str_replace_all(x, pattern = rgx_nonvalid,
                                   replacement = invalid_replacement)
-    warning("Non-standard IUPAC symbols detected for ",
-            type,": ", n_nonvalid,
-            " characters were converted to N.", call. = FALSE)
+    if(type == "DNA" || type == "RNA") {
+      warning("Non-standard IUPAC symbols detected for ",
+              type,": ", n_nonvalid,
+              " characters were converted to N.", call. = FALSE)
+    }
+
+    if(type == "AA") {
+      warning("Non-standard IUPAC symbols detected for ",
+              type,": ", n_nonvalid,
+              " characters were converted to X.", call. = FALSE)
+    }
+
   }
   if(!is.null(x_names)){
     names(x) <- x_names
