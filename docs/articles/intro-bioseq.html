@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,18 +40,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bioseq</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.4</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -74,7 +70,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/fkeck/bioseq/">
+  <a href="https://github.com/fkeck/bioseq/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -95,7 +91,7 @@
       <h1 data-toc-skip>Introduction to the <code>bioseq</code> package</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/fkeck/bioseq/blob/master/vignettes/intro-bioseq.Rmd"><code>vignettes/intro-bioseq.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/fkeck/bioseq/blob/HEAD/vignettes/intro-bioseq.Rmd" class="external-link"><code>vignettes/intro-bioseq.Rmd</code></a></small>
       <div class="hidden name"><code>intro-bioseq.Rmd</code></div>
 
     </div>
@@ -103,181 +99,181 @@
     
     
 <p>The purpose of the <code>bioseq</code> package is to provide a collection of classes and functions for biological sequence manipulation in R. This vignette will introduce you to the basics of the package so you can get an overview of its functionnalities and start to use it rapidly.</p>
-<p>It is assumed that you already installed the package either from CRAN using the function <code>install.packages("bioseq)</code> or from GitHub using <code><a href="https://remotes.r-lib.org/reference/install_github.html">remotes::install_github("fkeck/bioseq")</a></code>. Now, let’s get started by loading the package.</p>
+<p>It is assumed that you already installed the package either from CRAN using the function <code>install.packages("bioseq)</code> or from GitHub using <code>remotes::install_github("fkeck/bioseq")</code>. Now, let’s get started by loading the package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://fkeck.github.io/bioseq/">bioseq</a></span><span class="op">)</span></code></pre></div>
-<div id="first-steps" class="section level2">
-<h2 class="hasAnchor">
-<a href="#first-steps" class="anchor"></a>First steps</h2>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://fkeck.github.io/bioseq/" class="external-link">bioseq</a></span><span class="op">)</span></span></code></pre></div>
+<div class="section level2">
+<h2 id="first-steps">First steps<a class="anchor" aria-label="anchor" href="#first-steps"></a>
+</h2>
 <p>One of the core functionnality of <code>bioseq</code> is to provide vector classes to store DNA, RNA and amino acid sequences. We create our first DNA sequence vector using the function <code><a href="../reference/dna.html">dna()</a></code>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span>Seq_1 <span class="op">=</span> <span class="st">"ACCTAG"</span>, Seq_2 <span class="op">=</span> <span class="st">"GGTATATACC"</span>, Seq_3 <span class="op">=</span> <span class="st">"AGTC"</span><span class="op">)</span>
-<span class="fu"><a href="../reference/is_dna.html">is_dna</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-<span class="co">#&gt; [1] TRUE</span>
-<span class="va">x</span>
-<span class="co">#&gt; DNA vector of 3 sequences</span>
-<span class="co">#&gt; Seq_1  ACCTAG</span>
-<span class="co">#&gt; Seq_2  GGTATATACC</span>
-<span class="co">#&gt; Seq_3  AGTC</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span>Seq_1 <span class="op">=</span> <span class="st">"ACCTAG"</span>, Seq_2 <span class="op">=</span> <span class="st">"GGTATATACC"</span>, Seq_3 <span class="op">=</span> <span class="st">"AGTC"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/is_dna.html">is_dna</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span>
+<span><span class="va">x</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 3 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">Seq_1</span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">CC</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">Seq_2</span><span>  </span><span style="color: #BBBB00;font-weight: bold;">GG</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">CC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">Seq_3</span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #00BB00;font-weight: bold;">C</span></span></span></code></pre></div>
 <p>The function <code><a href="../reference/is_dna.html">is_dna()</a></code> is useful to test if an object is a DNA vector. The print method nicely indicates that <code>x</code> is a DNA vector of 3 sequences. Note that contrary to the standard print methods for R vectors, each element is printed on its own line, next to its (optional) name. Apart from this, a DNA vector behave very like a <code>character</code> vector. For example we can select and reorder elements by name, logical or index:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Seq_3"</span>, <span class="st">"Seq_1"</span><span class="op">)</span><span class="op">]</span>
-<span class="co">#&gt; DNA vector of 2 sequences</span>
-<span class="co">#&gt; Seq_3  AGTC</span>
-<span class="co">#&gt; Seq_1  ACCTAG</span>
-<span class="va">x</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>
-<span class="co">#&gt; DNA vector of 1 sequences</span>
-<span class="co">#&gt; Seq_2  GGTATATACC</span>
-<span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span><span class="op">)</span><span class="op">]</span>
-<span class="co">#&gt; DNA vector of 1 sequences</span>
-<span class="co">#&gt; Seq_3  AGTC</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Seq_3"</span>, <span class="st">"Seq_1"</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 2 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">Seq_3</span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #00BB00;font-weight: bold;">C</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">Seq_1</span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">CC</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span>
+<span><span class="va">x</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 1 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">Seq_2</span><span>  </span><span style="color: #BBBB00;font-weight: bold;">GG</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">CC</span></span></span>
+<span><span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 1 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">Seq_3</span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #00BB00;font-weight: bold;">C</span></span></span></code></pre></div>
 <p>However, the key difference between a DNA vector and a character vector is that DNA uses a restricted alphabet. For DNA this alphabet is A, C, G, T, W, S, M, K, R, Y, B, D, H, V, N and -, which correpond to the IUPAC symbols for DNA nucleotides. What happens if you include a forbidden character in a sequence?</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"?AcGF"</span><span class="op">)</span>
-<span class="co">#&gt; Warning: Non-standard IUPAC symbols detected for DNA: 2 characters were</span>
-<span class="co">#&gt; converted to N.</span>
-<span class="va">y</span>
-<span class="co">#&gt; DNA vector of 1 sequences</span>
-<span class="co">#&gt; &gt;   NACGN</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"?AcGF"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: Non-standard IUPAC symbols detected for DNA: 2 characters were</span></span>
+<span><span class="co">#&gt; converted to N.</span></span>
+<span><span class="va">y</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 1 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  N</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #BBBB00;font-weight: bold;">G</span><span>N</span></span></span></code></pre></div>
 <p>Here we included two forbidden characters (? and F). Both are automatically converted to a N (which stands for <em>any nucleotide</em>). Forbidden characters often mean that something went wrong somewhere, so the function warns the user. Additionally we included a lowercase symbol (c) which is automatically and silently converted to uppercase. This mechanism guarantees that DNA objects contain only uppercase characters.</p>
 <p>RNA and amino acid sequences can be constructed just like DNA using <code><a href="../reference/rna.html">rna()</a></code> and <code><a href="../reference/aa.html">aa()</a></code> functions. It is possible to check the allowed alphabet for each type of sequences by typing <code><a href="../reference/alphabets.html">?alphabets</a></code> in the console.</p>
 </div>
-<div id="operations-on-sequences" class="section level2">
-<h2 class="hasAnchor">
-<a href="#operations-on-sequences" class="anchor"></a>Operations on sequences</h2>
-<div id="biological-conversion-among-classes" class="section level3">
-<h3 class="hasAnchor">
-<a href="#biological-conversion-among-classes" class="anchor"></a>Biological conversion among classes</h3>
+<div class="section level2">
+<h2 id="operations-on-sequences">Operations on sequences<a class="anchor" aria-label="anchor" href="#operations-on-sequences"></a>
+</h2>
+<div class="section level3">
+<h3 id="biological-conversion-among-classes">Biological conversion among classes<a class="anchor" aria-label="anchor" href="#biological-conversion-among-classes"></a>
+</h3>
 <p>In living organisms, DNA is typically transcribed to RNA which is translated to a proteic sequence. Similarly, conversion among sequence classes can be achieved using the <code><a href="../reference/transcription.html">seq_transcribe()</a></code> and <code><a href="../reference/seq_translate.html">seq_translate()</a></code> functions.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x_dna</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"ATGTCACCACAAACAGAGACT"</span><span class="op">)</span>
-<span class="va">x_dna</span>
-<span class="co">#&gt; DNA vector of 1 sequences</span>
-<span class="co">#&gt; &gt;   ATGTCACCACAAACAGAGACT</span>
-
-<span class="va">x_rna</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/transcription.html">seq_transcribe</a></span><span class="op">(</span><span class="va">x_dna</span><span class="op">)</span>
-<span class="va">x_rna</span>
-<span class="co">#&gt; RNA vector of 1 sequences</span>
-<span class="co">#&gt; &gt;   AUGUCACCACAAACAGAGACU</span>
-
-<span class="va">x_aa</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seq_translate.html">seq_translate</a></span><span class="op">(</span><span class="va">x_rna</span><span class="op">)</span>
-<span class="va">x_aa</span>
-<span class="co">#&gt; AA vector of 1 sequences</span>
-<span class="co">#&gt; &gt;   MSPQTET</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x_dna</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"ATGTCACCACAAACAGAGACT"</span><span class="op">)</span></span>
+<span><span class="va">x_dna</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 1 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">CC</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #BB0000;font-weight: bold;">AAA</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span></span></span>
+<span></span>
+<span><span class="va">x_rna</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/transcription.html">seq_transcribe</a></span><span class="op">(</span><span class="va">x_dna</span><span class="op">)</span></span>
+<span><span class="va">x_rna</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">RNA vector of 1 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">U</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #0000BB;font-weight: bold;">U</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">CC</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #BB0000;font-weight: bold;">AAA</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">U</span></span></span>
+<span></span>
+<span><span class="va">x_aa</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seq_translate.html">seq_translate</a></span><span class="op">(</span><span class="va">x_rna</span><span class="op">)</span></span>
+<span><span class="va">x_aa</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">AA vector of 1 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #005FAF;font-weight: bold;">M</span><span style="color: #00AF00;font-weight: bold;">S</span><span style="color: #D7D700;font-weight: bold;">P</span><span style="color: #87FF87;font-weight: bold;">Q</span><span style="color: #5FD75F;font-weight: bold;">T</span><span style="color: #AF5FAF;font-weight: bold;">E</span><span style="color: #5FD75F;font-weight: bold;">T</span></span></span></code></pre></div>
 <p>During transcription thymine is simply replaced by uracil. The translation decodes the RNA sequence into amino acids using the standard genetic code. Non standard genetic codes are also available for translation (see the help <code><a href="../reference/seq_translate.html">?seq_translate</a></code>). The reverse transcription can be achieved using the function <code><a href="../reference/transcription.html">seq_rev_transcribe()</a></code>. The reverse translation is biologically not possible but is implemented in the function <code><a href="../reference/seq_rev_translate.html">seq_rev_translate()</a></code>. Because of the degeneracy of the genetic code, the reverse translation typically produces many ambiguous bases.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dna_from_rna</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/transcription.html">seq_rev_transcribe</a></span><span class="op">(</span><span class="va">x_rna</span><span class="op">)</span>
-<span class="va">dna_from_rna</span>
-<span class="co">#&gt; DNA vector of 1 sequences</span>
-<span class="co">#&gt; &gt;   ATGTCACCACAAACAGAGACT</span>
-
-<span class="va">dna_from_aa</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seq_rev_translate.html">seq_rev_translate</a></span><span class="op">(</span><span class="va">x_aa</span><span class="op">)</span>
-<span class="va">dna_from_aa</span>
-<span class="co">#&gt; DNA vector of 1 sequences</span>
-<span class="co">#&gt; &gt;   ATGWSNCCNCARACNGARACN</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">dna_from_rna</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/transcription.html">seq_rev_transcribe</a></span><span class="op">(</span><span class="va">x_rna</span><span class="op">)</span></span>
+<span><span class="va">dna_from_rna</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 1 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">CC</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #BB0000;font-weight: bold;">AAA</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span></span></span>
+<span></span>
+<span><span class="va">dna_from_aa</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seq_rev_translate.html">seq_rev_translate</a></span><span class="op">(</span><span class="va">x_aa</span><span class="op">)</span></span>
+<span><span class="va">dna_from_aa</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 1 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span>WSN</span><span style="color: #00BB00;font-weight: bold;">CC</span><span>N</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #BB0000;font-weight: bold;">A</span><span>R</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">C</span><span>N</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">A</span><span>R</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">C</span><span>N</span></span></span></code></pre></div>
 <p>Finally, it is often useful to compute the complement and the reverse complement of DNA and RNA sequences. this can be achieved using the functions</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x_dna_comp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/rev_complement.html">seq_complement</a></span><span class="op">(</span><span class="va">x_dna</span><span class="op">)</span>
-<span class="va">x_dna_comp_rev</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/rev_complement.html">seq_reverse</a></span><span class="op">(</span><span class="va">x_dna_comp</span><span class="op">)</span>
-
-<span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="va">x_dna</span>, <span class="va">x_dna_comp</span>, <span class="va">x_dna_comp_rev</span><span class="op">)</span>
-<span class="co">#&gt; DNA vector of 3 sequences</span>
-<span class="co">#&gt; &gt;   ATGTCACCACAAACAGAGACT</span>
-<span class="co">#&gt; &gt;   TACAGTGGTGTTTGTCTCTGA</span>
-<span class="co">#&gt; &gt;   AGTCTCTGTTTGTGGTGACAT</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x_dna_comp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/rev_complement.html">seq_complement</a></span><span class="op">(</span><span class="va">x_dna</span><span class="op">)</span></span>
+<span><span class="va">x_dna_comp_rev</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/rev_complement.html">seq_reverse</a></span><span class="op">(</span><span class="va">x_dna_comp</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="va">x_dna</span>, <span class="va">x_dna_comp</span>, <span class="va">x_dna_comp_rev</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 3 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">CC</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #BB0000;font-weight: bold;">AAA</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">GG</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #0000BB;font-weight: bold;">TTT</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">A</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #0000BB;font-weight: bold;">TTT</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">GG</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">T</span></span></span></code></pre></div>
 </div>
-<div id="string-operations" class="section level3">
-<h3 class="hasAnchor">
-<a href="#string-operations" class="anchor"></a>String operations</h3>
+<div class="section level3">
+<h3 id="string-operations">String operations<a class="anchor" aria-label="anchor" href="#string-operations"></a>
+</h3>
 <p>The <code>bioseq</code> package comes with numerous functions to perform string operations at the sequence level. We will not review the complete list of functions provided by the package, but we will see below how use some of them.</p>
 <p>We will take a simple example with 3 sequences. The first two sequences have four A repeated. We will focus on this particular pattern.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"CTGAAAACTG"</span>, <span class="st">"ATGAAAACTG"</span>, <span class="st">"CTGCTG"</span><span class="op">)</span></code></pre></div>
-<div id="detection-and-selection" class="section level4">
-<h4 class="hasAnchor">
-<a href="#detection-and-selection" class="anchor"></a>Detection and selection</h4>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"CTGAAAACTG"</span>, <span class="st">"ATGAAAACTG"</span>, <span class="st">"CTGCTG"</span><span class="op">)</span></span></code></pre></div>
+<div class="section level4">
+<h4 id="detection-and-selection">Detection and selection<a class="anchor" aria-label="anchor" href="#detection-and-selection"></a>
+</h4>
 <p>Let’s start by selecting only the sequences that match the pattern. This can be easily achieved by combining <code>seq_detect_pattern</code> with the <code>[]</code> operator.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span><span class="op">[</span><span class="fu"><a href="../reference/seq_detect_pattern.html">seq_detect_pattern</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"AAAA"</span><span class="op">)</span><span class="op">]</span>
-<span class="co">#&gt; DNA vector of 2 sequences</span>
-<span class="co">#&gt; &gt;   CTGAAAACTG</span>
-<span class="co">#&gt; &gt;   ATGAAAACTG</span></code></pre></div>
-<p>When using a simple character vector as pattern, the pattern is evaluated as a regular expression. This means that you can perform very complex queries using the regular expression syntax. Regular expressions are beyond the scope of this vignette but if you are interested to learn more the <a href="https://r4ds.had.co.nz/strings.html"><em>String</em> chapter</a> from the book <em>R for Data Science</em> by Grolemund and Wickham is a good place to get started.</p>
+<code class="sourceCode R"><span><span class="va">x</span><span class="op">[</span><span class="fu"><a href="../reference/seq_detect_pattern.html">seq_detect_pattern</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"AAAA"</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 2 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">AAAA</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">AAAA</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span></code></pre></div>
+<p>When using a simple character vector as pattern, the pattern is evaluated as a regular expression. This means that you can perform very complex queries using the regular expression syntax. Regular expressions are beyond the scope of this vignette but if you are interested to learn more the <a href="https://r4ds.had.co.nz/strings.html" class="external-link"><em>String</em> chapter</a> from the book <em>R for Data Science</em> by Grolemund and Wickham is a good place to get started.</p>
 <p>As an example to illustrate regex support, the same pattern (AAAA) could be also formulated:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span><span class="op">[</span><span class="fu"><a href="../reference/seq_detect_pattern.html">seq_detect_pattern</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"A{4}"</span><span class="op">)</span><span class="op">]</span>
-<span class="co">#&gt; DNA vector of 2 sequences</span>
-<span class="co">#&gt; &gt;   CTGAAAACTG</span>
-<span class="co">#&gt; &gt;   ATGAAAACTG</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span><span class="op">[</span><span class="fu"><a href="../reference/seq_detect_pattern.html">seq_detect_pattern</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"A{4}"</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 2 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">AAAA</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">AAAA</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span></code></pre></div>
 <p>Alternatively, a biological sequence (i.e a DNA, RNA or AA vector) can be used as pattern. This is less flexible than regular expression but can present several advantages. First it is safer and clearer because it forces the user to be more specific. Second, it allows to deal with ambiguous characters.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># This works</span>
-<span class="va">x</span><span class="op">[</span><span class="fu"><a href="../reference/seq_detect_pattern.html">seq_detect_pattern</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"AAAA"</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>
-<span class="co">#&gt; DNA vector of 2 sequences</span>
-<span class="co">#&gt; &gt;   CTGAAAACTG</span>
-<span class="co">#&gt; &gt;   ATGAAAACTG</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># This works</span></span>
+<span><span class="va">x</span><span class="op">[</span><span class="fu"><a href="../reference/seq_detect_pattern.html">seq_detect_pattern</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"AAAA"</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 2 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">AAAA</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">AAAA</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># This fails because x is a DNA vector and pattern is an amino acid vector</span>
-<span class="va">x</span><span class="op">[</span><span class="fu"><a href="../reference/seq_detect_pattern.html">seq_detect_pattern</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="../reference/aa.html">aa</a></span><span class="op">(</span><span class="st">"AAAA"</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># This fails because x is a DNA vector and pattern is an amino acid vector</span></span>
+<span><span class="va">x</span><span class="op">[</span><span class="fu"><a href="../reference/seq_detect_pattern.html">seq_detect_pattern</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="../reference/aa.html">aa</a></span><span class="op">(</span><span class="st">"AAAA"</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></span></code></pre></div>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># This works because W can be A or T.</span>
-<span class="va">x</span><span class="op">[</span><span class="fu"><a href="../reference/seq_detect_pattern.html">seq_detect_pattern</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"WAWA"</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>
-<span class="co">#&gt; DNA vector of 2 sequences</span>
-<span class="co">#&gt; &gt;   CTGAAAACTG</span>
-<span class="co">#&gt; &gt;   ATGAAAACTG</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># This works because W can be A or T.</span></span>
+<span><span class="va">x</span><span class="op">[</span><span class="fu"><a href="../reference/seq_detect_pattern.html">seq_detect_pattern</a></span><span class="op">(</span><span class="va">x</span>, <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"WAWA"</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 2 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">AAAA</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #BB0000;font-weight: bold;">AAAA</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span></code></pre></div>
 <p>However it is important to remember that a pattern which contains ambiguous characters is less specific and can capture several strings. How many and which ones? This can be answered using the function <code>seq_disambiguate_IUPAC</code>:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/seq_disambiguate_IUPAC.html">seq_disambiguate_IUPAC</a></span><span class="op">(</span><span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"WAWA"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; [[1]]</span>
-<span class="co">#&gt; DNA vector of 4 sequences</span>
-<span class="co">#&gt; &gt;   AAAA</span>
-<span class="co">#&gt; &gt;   TAAA</span>
-<span class="co">#&gt; &gt;   AATA</span>
-<span class="co">#&gt; &gt;   TATA</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/seq_disambiguate_IUPAC.html">seq_disambiguate_IUPAC</a></span><span class="op">(</span><span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"WAWA"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 4 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #BB0000;font-weight: bold;">AAAA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BB0000;font-weight: bold;">AAA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #BB0000;font-weight: bold;">AA</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BB0000;font-weight: bold;">A</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BB0000;font-weight: bold;">A</span></span></span></code></pre></div>
 </div>
-<div id="remove-and-replace" class="section level4">
-<h4 class="hasAnchor">
-<a href="#remove-and-replace" class="anchor"></a>Remove and replace</h4>
+<div class="section level4">
+<h4 id="remove-and-replace">Remove and replace<a class="anchor" aria-label="anchor" href="#remove-and-replace"></a>
+</h4>
 <p>If the AAAA pattern is an incorrect insertion, we may want to remove it from the sequences. This can be done with the function <code><a href="../reference/seq_remove_pattern.html">seq_remove_pattern()</a></code>.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/seq_remove_pattern.html">seq_remove_pattern</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"A{4}"</span><span class="op">)</span>
-<span class="co">#&gt; DNA vector of 3 sequences</span>
-<span class="co">#&gt; &gt;   CTGCTG</span>
-<span class="co">#&gt; &gt;   ATGCTG</span>
-<span class="co">#&gt; &gt;   CTGCTG</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/seq_remove_pattern.html">seq_remove_pattern</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"A{4}"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 3 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span></code></pre></div>
 <p>We can also replace a specific pattern with another sequence.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/seq-replace.html">seq_replace_pattern</a></span><span class="op">(</span><span class="va">x</span>,
-                    pattern <span class="op">=</span> <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"AAAA"</span><span class="op">)</span>,
-                    replacement <span class="op">=</span> <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"----"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; DNA vector of 3 sequences</span>
-<span class="co">#&gt; &gt;   CTG----CTG</span>
-<span class="co">#&gt; &gt;   ATG----CTG</span>
-<span class="co">#&gt; &gt;   CTGCTG</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/seq-replace.html">seq_replace_pattern</a></span><span class="op">(</span><span class="va">x</span>,</span>
+<span>                    pattern <span class="op">=</span> <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"AAAA"</span><span class="op">)</span>,</span>
+<span>                    replacement <span class="op">=</span> <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"----"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 3 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span>----</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span>----</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span></code></pre></div>
 <p>So far we performed operations using pattern recognition (functions with prefix <code>seq_</code> and suffix <code>_pattern</code>). Several operations (remove, replace, extract and crop) can also be applied to a specific region delimited by to positions (in and out). This is typically more useful with aligned sequences.</p>
 <p>Instead of removing a pattern it is possible to remove specific region by providing to positions.</p>
 <p>For example if we want to replace the last 3 nucleotides with CCC:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seq_remove_pattern.html">seq_remove_pattern</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"A{4}"</span><span class="op">)</span>
-<span class="fu"><a href="../reference/seq_replace_position.html">seq_replace_position</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">4</span>, <span class="fl">6</span>,
-                     replacement <span class="op">=</span> <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"CCC"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; DNA vector of 3 sequences</span>
-<span class="co">#&gt; &gt;   CTGCCC</span>
-<span class="co">#&gt; &gt;   ATGCCC</span>
-<span class="co">#&gt; &gt;   CTGCCC</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/seq_remove_pattern.html">seq_remove_pattern</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"A{4}"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/seq_replace_position.html">seq_replace_position</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">4</span>, <span class="fl">6</span>,</span>
+<span>                     replacement <span class="op">=</span> <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"CCC"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 3 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #00BB00;font-weight: bold;">CCC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #00BB00;font-weight: bold;">CCC</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #00BB00;font-weight: bold;">CCC</span></span></span></code></pre></div>
 <p>It is important to know that patterns, positions and replacements are recycled along the sequences (usually the <code>x</code> argument). This means that if a pattern (vector or list), a position or a replacement is of length &gt; 1, it will be replicated until it is the same length as x. This is powerful but it must be used with caution. The exemple below show an exemple with a vector of position (in) and a vector of replacement.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">x</span>
-<span class="co">#&gt; DNA vector of 3 sequences</span>
-<span class="co">#&gt; &gt;   CTGCTG</span>
-<span class="co">#&gt; &gt;   ATGCTG</span>
-<span class="co">#&gt; &gt;   CTGCTG</span>
-<span class="fu"><a href="../reference/seq_replace_position.html">seq_replace_position</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fl">6</span>,
-                     replacement <span class="op">=</span> <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"-"</span>, <span class="st">"--"</span>, <span class="st">"---"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; DNA vector of 3 sequences</span>
-<span class="co">#&gt; &gt;   -</span>
-<span class="co">#&gt; &gt;   A--</span>
-<span class="co">#&gt; &gt;   CT---</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">x</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 3 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span style="color: #BBBB00;font-weight: bold;">G</span></span></span>
+<span><span class="fu"><a href="../reference/seq_replace_position.html">seq_replace_position</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="fl">6</span>,</span>
+<span>                     replacement <span class="op">=</span> <span class="fu"><a href="../reference/dna.html">dna</a></span><span class="op">(</span><span class="st">"-"</span>, <span class="st">"--"</span>, <span class="st">"---"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">DNA vector of 3 sequences</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  -</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #BB0000;font-weight: bold;">A</span><span>--</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;font-style: italic;">&gt; </span><span>  </span><span style="color: #00BB00;font-weight: bold;">C</span><span style="color: #0000BB;font-weight: bold;">T</span><span>---</span></span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -294,11 +290,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Francois Keck.</p>
+  <p></p>
+<p>Developed by Francois Keck.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -306,6 +304,8 @@
 
   
 
+
+  
 
   </body>
 </html>

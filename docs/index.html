@@ -31,6 +31,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -43,18 +45,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">bioseq</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.4</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -79,7 +75,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/fkeck/bioseq/">
+  <a href="https://github.com/fkeck/bioseq/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -96,66 +92,75 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="bioseq-a-toolbox-for-manipulating-biological-sequences-in-r" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#bioseq-a-toolbox-for-manipulating-biological-sequences-in-r" class="anchor"></a>bioseq: A Toolbox for Manipulating Biological Sequences in R</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="bioseq-a-toolbox-for-manipulating-biological-sequences-in-r">bioseq: A Toolbox for Manipulating Biological Sequences in R<a class="anchor" aria-label="anchor" href="#bioseq-a-toolbox-for-manipulating-biological-sequences-in-r"></a>
+</h1></div>
 <p><img src="reference/figures/logo.png" align="right" width="150"></p>
 <!-- badges: start -->
-<p><a href="https://github.com/fkeck/bioseq/actions"><img src="https://github.com/fkeck/bioseq/workflows/R-CMD-check/badge.svg" alt="R build status"></a> <a href="https://codecov.io/gh/fkeck/bioseq?branch=master"><img src="https://codecov.io/gh/fkeck/bioseq/branch/master/graph/badge.svg" alt="Codecov test coverage"></a> <a href="https://www.r-pkg.org/badges/version/bioseq"><img src="https://www.r-pkg.org/badges/version/bioseq" alt="CRAN status"></a> <!-- badges: end --></p>
 <p>The purpose of <code>bioseq</code> is to provide a collection of classes and functions for biological sequence manipulation in R. The package provides simple S3 classes for sequences that are suitable for inclusion in a data frame and that can be analysed using the <code>dplyr</code> grammar and other <code>tidyverse</code> tools.</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>You can install the development version of <code>bioseq</code> from GitHub with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"fkeck/bioseq"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"fkeck/bioseq"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="tutorials" class="section level2">
-<h2 class="hasAnchor">
-<a href="#tutorials" class="anchor"></a>Tutorials</h2>
+<div class="section level2">
+<h2 id="tutorials">Tutorials<a class="anchor" aria-label="anchor" href="#tutorials"></a>
+</h2>
 <p>There are two vignettes available to get started with the package:</p>
 <ul>
 <li>Introduction to the <code>bioseq</code> package</li>
 <li>Cleaning and exploring NCBI data with the <code>bioseq</code> package</li>
 </ul>
 </div>
-<div id="citation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#citation" class="anchor"></a>Citation</h2>
-<p>If you use bioseq please cite Keck F. (2020) Handling biological sequences in R with the bioseq package. Methods in Ecology and Evolution. <a href="https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13490">doi:10.1111/2041-210X.13490</a></p>
+<div class="section level2">
+<h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
+</h2>
+<p>If you use bioseq please cite Keck F. (2020) Handling biological sequences in R with the bioseq package. Methods in Ecology and Evolution. <a href="https://besjournals.onlinelibrary.wiley.com/doi/abs/10.1111/2041-210X.13490" class="external-link">doi:10.1111/2041-210X.13490</a></p>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=bioseq">https://​cloud.r-project.org/​package=bioseq</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/fkeck/bioseq/">https://​github.com/​fkeck/​bioseq/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/fkeck/bioseq/issues">https://​github.com/​fkeck/​bioseq/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=bioseq" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/fkeck/bioseq/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/fkeck/bioseq/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></small></li>
+<li><small><a href="https://www.r-project.org/Licenses/GPL-3" class="external-link">GPL-3</a></small></li>
 </ul>
 </div>
+
+
 <div class="citation">
-<h2>Citation</h2>
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li><a href="authors.html">Citing bioseq</a></li>
+<li><a href="authors.html#citation">Citing bioseq</a></li>
 </ul>
 </div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Francois Keck <br><small class="roles"> Author, maintainer, copyright holder </small> <a href="https://orcid.org/0000-0002-3323-4167" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Francois Keck <br><small class="roles"> Author, maintainer, copyright holder </small> <a href="https://orcid.org/0000-0002-3323-4167" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/fkeck/bioseq/actions" class="external-link"><img src="https://github.com/fkeck/bioseq/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+<li><a href="https://codecov.io/gh/fkeck/bioseq?branch=master" class="external-link"><img src="https://codecov.io/gh/fkeck/bioseq/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://www.r-pkg.org/badges/version/bioseq" class="external-link"><img src="https://www.r-pkg.org/badges/version/bioseq" alt="CRAN status"></a></li>
 </ul>
 </div>
 
@@ -164,11 +169,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Francois Keck.</p>
+  <p></p>
+<p>Developed by Francois Keck.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -176,6 +183,8 @@
 
   
 
+
+  
 
   </body>
 </html>
