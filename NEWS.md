@@ -1,8 +1,12 @@
-# bioseq dev version
+# bioseq 0.1.4
 
 ## Minor changes
 
 * Add arguments to `write_fasta()` to control line and block lengths.
+
+* Fix warning message when a non-valid character is automatically replaced by X with AA.
+
+* On CRAN request, fix tags/attributes for HTML documentation.
 
 # bioseq 0.1.3
 
