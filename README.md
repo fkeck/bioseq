@@ -4,7 +4,7 @@
 
 <!-- badges: start -->
 [![R build status](https://github.com/fkeck/bioseq/workflows/R-CMD-check/badge.svg)](https://github.com/fkeck/bioseq/actions)
-[![Codecov test coverage](https://codecov.io/gh/fkeck/bioseq/branch/master/graph/badge.svg)](https://codecov.io/gh/fkeck/bioseq?branch=master)
+[![Codecov test coverage](https://codecov.io/gh/fkeck/bioseq/branch/master/graph/badge.svg)](https://app.codecov.io/gh/fkeck/bioseq?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/bioseq)](https://www.r-pkg.org/badges/version/bioseq)
 <!-- badges: end -->
 
