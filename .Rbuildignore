@@ -13,3 +13,4 @@ git_ignore
 ^codecov\.yml$
 cran-comments.md
 ^CRAN-RELEASE$
+^CRAN-SUBMISSION$
