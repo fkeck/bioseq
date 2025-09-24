@@ -86,6 +86,7 @@ seq_spellout <- function(x, short = FALSE, collapse = " - "){
   if(is_aa(x) & short) dic <- dic_aa()$short_description
 
   out <- stringr::str_split(x, "")
+  out <- unname(out)
   out <- lapply(out, function(x) dic[x])
 
   if(is.character(collapse)){
@@ -94,7 +95,3 @@ seq_spellout <- function(x, short = FALSE, collapse = " - "){
     lapply(out, `names<-`, NULL)
   }
 }
-
-
-
-
