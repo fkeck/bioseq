@@ -1,15 +1,9 @@
 citHeader("To cite bioseq in publications use:")
 
-citEntry(entry="Article",
-         title = "Handling biological sequences in R with the bioseq package",
-         author = c(person("Francois", "Keck")),
-         journal      = "Methods in Ecology and Evolution",
-         year         = "2020",
-         doi          = "10.1111/2041-210X.13490",
-         
-         textVersion = 
-         paste("Keck F. (2020).", 
-               "Handling biological sequences in R with the bioseq package.",
-               "Methods in Ecology and Evolution.",
-	       "doi:10.1111/2041-210X.13490")
-)
+bibentry(
+  bibtype = "Article",
+  title = "Bootstrap Methods and Their Applications",
+  author = person("Francois", "Keck", comment = c(ORCID = "0000-0002-3323-4167")),
+  journal = "Methods in Ecology and Evolution",
+  year = "2020",
+  doi = "10.1111/2041-210X.13490")
