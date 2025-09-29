@@ -1,3 +1,7 @@
+# bioseq 0.1.5
+
+* Fix issue with upcoming release of stringr.
+
 # bioseq 0.1.4
 
 ## Minor changes
